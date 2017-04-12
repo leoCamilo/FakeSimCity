@@ -1,4 +1,6 @@
-﻿namespace Cariacity.game
+﻿using System.Collections.Generic;
+
+namespace Cariacity.game
 {
     public class City
     {
@@ -6,10 +8,18 @@
         public float Money { get; set; }
         public float Happyness { get; set; }
 
+        public IList<GridCell> HomeList { get; set; }
+
         public City()
         {
+            HomeList = new List<GridCell>();
             Population = 0;
             Money = 10000;
+        }
+
+        public static float CalculateCellProgress(GridCell cell)
+        {
+            return 1;
         }
 
         public void CalculateHappyness()

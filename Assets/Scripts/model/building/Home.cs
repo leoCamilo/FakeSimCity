@@ -62,6 +62,7 @@ namespace Cariacity.game
             }
 
             DebitFromMoney(value);
+            Common.CurrentCity.HomeList.Add(cell);
         }
 
         public static void RemoveFromMap(Vector3 pos)

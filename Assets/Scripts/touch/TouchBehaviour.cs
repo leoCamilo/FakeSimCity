@@ -6,7 +6,9 @@ namespace Cariacity.game
 
     public class TouchBehaviour : MonoBehaviour
     {
+        private bool _showStatus;
         private float _timer;
+        
         private GameObject _lastProject;
         private TouchController _touchController;
         private BuildingBehaviour _behaviour;
@@ -65,29 +67,35 @@ namespace Cariacity.game
 
                     switch (touch.phase)
                     {
-                        case TouchPhase.Began: _timer = Time.time; break;
-                        case TouchPhase.Moved: _touchController.Movment(Input.GetTouch(0)); break;
-                        case TouchPhase.Ended:
-                            if (Time.time - _timer < 0.2)
+                        case TouchPhase.Began:
+                            _timer = Time.time;
+                            _showStatus = true;
+                            break;
+
+                        case TouchPhase.Moved:
+                            _showStatus = false;
+                            _touchController.Movment(Input.GetTouch(0));
+                            break;
+
+                        case TouchPhase.Stationary:
+                            if (Time.time - _timer > 1 && _showStatus)
                             {
-                                // var touchPoint = touch.position;
-                                // var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
-                                // var _cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
+                                var touchPoint = touch.position;
+                                var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
+                                var _cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
 
                                 // Common.Log(_cell.ToString());
-                                // Common.ShowInfo(_cell.ToString());
+                                Common.ShowInfo(_cell.ToString());
                             }
 
                             break;
+
+                        case TouchPhase.Ended: _showStatus = false; break;
                     }
 
                     break;
 
-                case 2:
-                    _touchController.Zoom(Input.GetTouch(0), Input.GetTouch(1));
-                    break;
-
-                default: break;
+                case 2: _touchController.Zoom(Input.GetTouch(0), Input.GetTouch(1)); break;
             }
         }
     }

@@ -30,7 +30,7 @@ namespace Cariacity.game
                 foreach (var item in _project)
                     UnityEngine.Object.Destroy(item);
 
-                _project.Clear();
+                _project.Clear();   // not remove all | verify if is the same path
 
                 var deltaI = cell.i - _firstCell.i;
                 var deltaJ = cell.j - _firstCell.j;
@@ -46,7 +46,7 @@ namespace Cariacity.game
                     while (i != limitI)
                     {
                         var tmpCell = Common.Matrix[i, _firstCell.j];
-                        _project.Add(GameController.InitObj(Street.Model, tmpCell.center));
+                        _project.Add(GameController.InitObj(Street.Project, tmpCell.center));
                         i += increase;
                     }
                 }
@@ -58,7 +58,7 @@ namespace Cariacity.game
                     while (j != limitJ)
                     {
                         var tmpCell = Common.Matrix[_firstCell.i, j];
-                        _project.Add(GameController.InitObj(Street.Model, tmpCell.center));
+                        _project.Add(GameController.InitObj(Street.Project, tmpCell.center));
                         j += increase;
                     }
                 }
@@ -88,6 +88,10 @@ namespace Cariacity.game
             foreach (var list in _projects)
                 foreach (var item in list)
                     Street.SetOnMap(item);
+
+            foreach (var list in _projects)
+                foreach (var item in list)
+                    Street.SetOrientation(item.transform.position);
         }
 
         public override void Clean()

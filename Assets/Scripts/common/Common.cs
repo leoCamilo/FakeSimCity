@@ -14,6 +14,7 @@ namespace Cariacity.game
         public static GameObject Info;
         public static GameObject Logger;
         public static GameObject Money;
+        public static GameObject Happyness;
 
         public static GridCell GetNearbyCell(Vector3 center)
         {
@@ -45,6 +46,11 @@ namespace Cariacity.game
         public static void UpdateMoney()
         {
             Money.GetComponent<Text>().text = "$ " + CurrentCity.Money;
+        }
+
+        public static void UpdatePopulation()
+        {
+            Happyness.GetComponent<Text>().text = "pop: " + CurrentCity.Population;
         }
     }
 }

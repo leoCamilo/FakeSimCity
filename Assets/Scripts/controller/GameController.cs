@@ -7,26 +7,8 @@ namespace Cariacity.game
     {
         public GameObject Test;
 
-        public GameObject HomeProject;
-        public GameObject HomeModel1;
-        public GameObject HomeModel2;
-        public GameObject HomeModel3;
-        public GameObject HomeModel4;
-        public GameObject HomeModel5;
-
-        public GameObject HospitalProject;
-        public GameObject HospitalModel;
-        public GameObject PoliceProject;
-        public GameObject PoliceModel;
-        public GameObject StreetModel;
-        public GameObject SchoolProject;
-
         public Material RightProject;
         public Material WrongProject;
-
-        public GameObject Logger;
-        public GameObject Info;
-        public GameObject Money;
 
         private IEnumerator _mainService;
 
@@ -93,9 +75,9 @@ namespace Cariacity.game
 
             // _mat[0, 50].obj = InitObj(StreetModel, _mat[0, 50].center); // Initial road
 
-            _mat[49, 49].obj = InitObj(StreetModel, _mat[49, 49].center);
-            _mat[49, 50].obj = InitObj(StreetModel, _mat[49, 50].center);
-            _mat[50, 50].obj = InitObj(StreetModel, _mat[50, 50].center);
+            _mat[49, 49].obj = InitObj(Street.Project, _mat[49, 49].center);
+            _mat[49, 50].obj = InitObj(Street.Project, _mat[49, 50].center);
+            _mat[50, 50].obj = InitObj(Street.Project, _mat[50, 50].center);
 
             Common.Matrix = _mat;
             Common.UpdateMoney();
@@ -113,30 +95,8 @@ namespace Cariacity.game
 
         private void _setCommonData()
         {
-            Hospital.Project = HospitalProject;
-            Hospital.Model = HospitalModel;
-
-            Police.Project = PoliceProject;
-            Police.Model = PoliceModel;
-
-            Street.Model = StreetModel;
-
-            School.Model = SchoolProject;
-            School.Project = SchoolProject;
-
-            Home.Project = HomeProject;
-            Home.Model[0] = HomeModel1;
-            Home.Model[1] = HomeModel2;
-            Home.Model[2] = HomeModel3;
-            Home.Model[3] = HomeModel4;
-            Home.Model[4] = HomeModel5;
-
             Common.RightProject = RightProject;
             Common.WrongProject = WrongProject;
-
-            Common.Logger = Logger;
-            Common.Info = Info;
-            Common.Money = Money;
         }
 
         private static IEnumerator _service(float timer)
@@ -144,8 +104,19 @@ namespace Cariacity.game
             while (true)
             {
                 yield return new WaitForSeconds(timer);
-                // Debug.Log("tempo: " + Time.time);
-                // do action here
+
+                Debug.Log("working");
+                int population = 0;
+                var city = Common.CurrentCity;
+
+                foreach (var home in city.HomeList)
+                {
+                    var progress = City.CalculateCellProgress(home);
+                    population += (int) progress;
+                }
+
+                city.Population = population;
+                Common.UpdatePopulation();
             }
         }
     }
