@@ -16,6 +16,7 @@ namespace Cariacity.game
         public static GameObject Money;
         public static GameObject Happyness;
 
+        /*
         public static GridCell GetNearbyCell(Vector3 center)
         {
             Vector3 tmp;
@@ -28,6 +29,38 @@ namespace Cariacity.game
                     if (tmp.magnitude < Constants.HalfHypotenuse) // maybe check down line
                         return Matrix[i, j];
                 }
+
+            return null;
+        }
+        */
+
+        public static GridCell GetNearbyCell(Vector3 center)
+        {
+            Vector3 tmp;
+
+            var oldMagnitude = 9999999f;
+            var line = 0;
+
+            for (int i = 0; i < Constants.GridSize; i++)
+            {
+                tmp = Matrix[i, 0].center - center;
+
+                if (tmp.magnitude < oldMagnitude)
+                {
+                    oldMagnitude = tmp.magnitude;
+                    line = i;
+                }
+                else
+                    break;
+            }
+
+            for (int j = 0; j < Constants.GridSize; j++)
+            {
+                tmp = Matrix[line, j].center - center;
+
+                if (tmp.magnitude < Constants.HalfHypotenuse) // maybe check down line
+                    return Matrix[line, j];
+            }
 
             return null;
         }

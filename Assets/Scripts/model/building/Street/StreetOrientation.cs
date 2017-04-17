@@ -2,8 +2,6 @@
 
 namespace Cariacity.game
 {
-    public enum StreetType { Line, Corner, T, Crossing }
-
     public class StreetOrientation
     {
         public GameObject Model { get; set; }
