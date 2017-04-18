@@ -18,65 +18,6 @@ namespace Cariacity.game
             return _cell.obj == null;
         }
 
-        public static void SetOrientation(Vector3 position)
-        {
-            GameObject obj;
-
-            var mat = Common.Matrix;
-            var cell = Common.GetNearbyCell(position);
-            var conections = 0;
-            bool[] directions = { false, false, false, false };
-
-            if (cell.j + 1 < Constants.GridSize)
-            {
-                obj = mat[cell.i, cell.j + 1].obj;
-
-                if (obj != null && obj.tag == Constants.StreetTag)
-                {
-                    conections++;
-                    directions[0] = true;
-                }
-            }
-
-            if (cell.i + 1 < Constants.GridSize)
-            {
-                obj = mat[cell.i + 1, cell.j].obj;
-
-                if (obj != null && obj.tag == Constants.StreetTag)
-                {
-                    conections++;
-                    directions[1] = true;
-                }
-            }
-
-            if (cell.j - 1 >= 0)
-            {
-                obj = mat[cell.i, cell.j - 1].obj;
-
-                if (obj != null && obj.tag == Constants.StreetTag)
-                {
-                    conections++;
-                    directions[2] = true;
-                }
-            }
-
-            if (cell.i - 1 >= 0)
-            {
-                obj = Common.Matrix[cell.i - 1, cell.j].obj;
-
-                if (obj != null && obj.tag == Constants.StreetTag)
-                {
-                    conections++;
-                    directions[3] = true;
-                }
-            }
-
-            Object.Destroy(cell.obj);
-
-            var tmp = StreetOrientation.GetOrientation(conections, directions);
-            cell.obj = GameController.InitObj(tmp.Model, cell.center, tmp.Rotation);
-        }
-
         public static void SetOnMap(GameObject item)
         {
             var pos = item.transform.position;
@@ -95,6 +36,55 @@ namespace Cariacity.game
             var cell = Common.GetNearbyCell(pos);
             Object.Destroy(cell.obj);
             cell.obj = null;
+        }
+
+        public static void SetOrientation(Vector3 position)
+        {
+            SetOrientation(position, true);
+        }
+
+        public static void SetOrientation(Vector3 position, bool recursive)
+        {
+            var cell = Common.GetNearbyCell(position);
+            var conections = 0;
+
+            bool[] directions = { false, false, false, false };
+
+            _compareSideCell(cell.i, cell.j + 1, 0, ref conections, directions, recursive);
+            _compareSideCell(cell.i, cell.j - 1, 2, ref conections, directions, recursive);
+            _compareSideCell(cell.i + 1, cell.j, 1, ref conections, directions, recursive);
+            _compareSideCell(cell.i - 1, cell.j, 3, ref conections, directions, recursive);
+
+            Object.Destroy(cell.obj);
+
+            var tmp = StreetOrientation.GetOrientation(conections, directions);
+            cell.obj = GameController.InitObj(tmp.Model, cell.center, tmp.Rotation);
+        }
+
+        private static void _compareSideCell(int i, int j, int idx, ref int conections, bool[] directions, bool isRecursive)
+        {
+            GameObject obj;
+
+            if (i >= 0 && i < Constants.GridSize && j >= 0 && j < Constants.GridSize)
+            {
+                obj = Common.Matrix[i, j].obj;
+
+                if (obj == null) return;
+
+                if (obj.tag == Constants.StreetProjTag)
+                {
+                    conections++;
+                    directions[idx] = true;
+                    return;
+                }
+
+                if (obj.tag == Constants.StreetTag)
+                {
+                    if (isRecursive) SetOrientation(Common.Matrix[i, j].center, false);
+                    conections++;
+                    directions[idx] = true;
+                }
+            }
         }
     }
 }

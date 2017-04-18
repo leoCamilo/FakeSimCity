@@ -8,6 +8,7 @@
         public const string PoliceTag = "police";
         public const string SchoolTag = "school";
         public const string HospitalTag = "hospital";
+        public const string StreetProjTag = "street_proj";
 
         public const float Hypotenuse = 1.41421356f;
         public const float HalfHypotenuse = 0.70710678118f;
