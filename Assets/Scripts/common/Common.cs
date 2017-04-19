@@ -58,7 +58,7 @@ namespace Cariacity.game
             {
                 tmp = Matrix[line, j].center - center;
 
-                if (tmp.magnitude < Constants.HalfHypotenuse) // maybe check down line
+                if (tmp.magnitude < Constants.HalfHypotenuse)
                     return Matrix[line, j];
             }
 

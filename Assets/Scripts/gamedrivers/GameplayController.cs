@@ -2,43 +2,40 @@
 
 namespace Cariacity.game
 {
-    public class CameraController : MonoBehaviour
+    public class GameplayController : MonoBehaviour
     {
-        private static TouchBehaviour _touchBehaviour;
-        private static TouchBehavior  _currentMode;
+        private static TouchController _touchControl;
+        private static TouchBehavior _currentMode;
 
-        private void Start() {
-            _touchBehaviour = new TouchBehaviour(gameObject);
-        }
-
-        public static void SetZoom(float zoom)
+        private void Start()
         {
-            var currentSize = Camera.main.orthographicSize;
-            Camera.main.orthographicSize = Mathf.Clamp(currentSize + zoom, 2, 10);
+            _touchControl = new TouchController();
         }
 
-        public static void SetInsertionModel(string type) {
-            _touchBehaviour.SetInsertionType(type);
+        public static void SetInsertionModel(string type)
+        {
+            _touchControl.SetInsertionType(type);
         }
 
-        public static void SetCurrentMode(TouchBehavior _mode) {
-            _currentMode = _mode;
+        public static void SetCurrentMode(TouchBehavior mode)
+        {
+            _currentMode = mode;
         }
 
         public static void CancelInsertion()
         {
-            _touchBehaviour.Clean();
+            _touchControl.Clean();
             _currentMode = TouchBehavior.Movment;
         }
 
         public static void CtrlZInsertion()
         {
-            _touchBehaviour.CtrlZ();
+            _touchControl.CtrlZ();
         }
 
         public static void AcceptInsertion()
         {
-            _touchBehaviour.Apply();
+            _touchControl.Apply();
             _currentMode = TouchBehavior.Movment;
         }
 
@@ -49,11 +46,11 @@ namespace Cariacity.game
                 switch (_currentMode)
                 {
                     case TouchBehavior.Movment:
-                        _touchBehaviour.MovmentMode();
+                        _touchControl.MovmentMode();
                         break;
 
                     case TouchBehavior.Building:
-                        _touchBehaviour.StartInsertionMode();
+                        _touchControl.StartInsertionMode();
                         break;
                 }
             }
@@ -75,7 +72,7 @@ namespace Cariacity.game
                         // if (_cell.obj == null)
                         //     _cell.obj = Instantiate(School.Project, _cell.center, Quaternion.Euler(0, 45, 0));
                         // else
-                            // Destroy(_cell.obj);
+                        // Destroy(_cell.obj);
                     }
 
                     //Instantiate(Model2, cameraPoint, Quaternion.Euler(-45, 0, 0));    // touch direction, !important

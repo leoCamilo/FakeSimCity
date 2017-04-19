@@ -4,18 +4,17 @@ namespace Cariacity.game
 {
     public enum TouchBehavior { Movment, Building }
 
-    public class TouchBehaviour : MonoBehaviour
+    public class TouchController : MonoBehaviour
     {
         private bool _showStatus;
         private float _timer;
-        
-        private GameObject _lastProject;
-        private TouchController _touchController;
+
+        private MovementBehaviour _movement;
         private BuildingBehaviour _behaviour;
 
-        public TouchBehaviour(GameObject camera)
+        public TouchController()
         {
-            _touchController = new TouchController(camera);
+            _movement = new MovementBehaviour();
         }
 
         public void SetInsertionType(string type)
@@ -74,7 +73,7 @@ namespace Cariacity.game
 
                         case TouchPhase.Moved:
                             _showStatus = false;
-                            _touchController.Movment(Input.GetTouch(0));
+                            _movement.Movment(Input.GetTouch(0));
                             break;
 
                         case TouchPhase.Stationary:
@@ -95,7 +94,7 @@ namespace Cariacity.game
 
                     break;
 
-                case 2: _touchController.Zoom(Input.GetTouch(0), Input.GetTouch(1)); break;
+                case 2: _movement.Zoom(Input.GetTouch(0), Input.GetTouch(1)); break;
             }
         }
     }

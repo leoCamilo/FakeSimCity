@@ -8,24 +8,24 @@ namespace Cariacity.game
         {
             UiController.EnableEditionMode();
 
-            CameraController.SetInsertionModel(Constants.HospitalTag);
-            CameraController.SetCurrentMode(TouchBehavior.Building);
+            GameplayController.SetInsertionModel(Constants.HospitalTag);
+            GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 
         public void BtnPolice()
         {
             UiController.EnableEditionMode();
 
-            CameraController.SetInsertionModel(Constants.PoliceTag);
-            CameraController.SetCurrentMode(TouchBehavior.Building);
+            GameplayController.SetInsertionModel(Constants.PoliceTag);
+            GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 
         public void BtnSchool()
         {
             UiController.EnableEditionMode();
 
-            CameraController.SetInsertionModel(Constants.SchoolTag);
-            CameraController.SetCurrentMode(TouchBehavior.Building);
+            GameplayController.SetInsertionModel(Constants.SchoolTag);
+            GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
     }
 }

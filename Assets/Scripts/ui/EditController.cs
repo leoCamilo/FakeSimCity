@@ -7,18 +7,18 @@ namespace Cariacity.game
         public void BtnCancel()
         {
             UiController.EnableNormalMode();
-            CameraController.CancelInsertion();
+            GameplayController.CancelInsertion();
         }
 
         public void BtnGiveup()
         {
-            CameraController.CtrlZInsertion();
+            GameplayController.CtrlZInsertion();
         }
 
         public void BtnAccept()
         {
             UiController.EnableNormalMode();
-            CameraController.AcceptInsertion();
+            GameplayController.AcceptInsertion();
         }
     }
 }

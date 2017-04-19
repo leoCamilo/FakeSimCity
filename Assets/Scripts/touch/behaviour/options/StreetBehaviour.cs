@@ -91,7 +91,7 @@ namespace Cariacity.game
 
             foreach (var list in _projects)
                 foreach (var item in list)
-                    Street.SetOrientation(item.transform.position);
+                    Street.SetOrientation(item.transform.position, true);
         }
 
         public override void Clean()

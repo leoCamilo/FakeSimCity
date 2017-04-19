@@ -38,11 +38,6 @@ namespace Cariacity.game
             cell.obj = null;
         }
 
-        public static void SetOrientation(Vector3 position)
-        {
-            SetOrientation(position, true);
-        }
-
         public static void SetOrientation(Vector3 position, bool recursive)
         {
             var cell = Common.GetNearbyCell(position);

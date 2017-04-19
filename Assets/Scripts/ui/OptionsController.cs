@@ -76,8 +76,8 @@ namespace Cariacity.game
         {
             UiController.EnableEditionMode();
 
-            CameraController.SetInsertionModel(Constants.CleanTag);
-            CameraController.SetCurrentMode(TouchBehavior.Building);
+            GameplayController.SetInsertionModel(Constants.CleanTag);
+            GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 
         public void BackBtn()
