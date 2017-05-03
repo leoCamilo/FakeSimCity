@@ -9,10 +9,12 @@ namespace Cariacity.game
         public float Happyness { get; set; }
 
         public IList<GridCell> HomeList { get; set; }
+        public IList<GridCell> StreetList { get; set; }
 
         public City()
         {
             HomeList = new List<GridCell>();
+            StreetList = new List<GridCell>();
             Population = 0;
             Money = 10000;
         }

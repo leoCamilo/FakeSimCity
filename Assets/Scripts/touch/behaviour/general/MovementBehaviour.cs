@@ -6,10 +6,15 @@ namespace Cariacity.game
     {
         private float _lastZoom;
 
+        private const int X = 0;
+        private const int Y = 1;
+
         public void Movment(Touch myTouch)
         {
-            var pos = myTouch.deltaPosition / Constants.CameraSpeed;
-            CameraController.Move(-pos[0], -pos[1]);
+            var speed = Constants.AngleCoefficient * CameraController.GetZoom() + Constants.DisplacementCoefficient;
+            var pos = myTouch.deltaPosition / speed;
+
+            CameraController.Move(-pos[X], -pos[Y]);
         }
 
         public void Zoom(Touch finger1, Touch finger2)

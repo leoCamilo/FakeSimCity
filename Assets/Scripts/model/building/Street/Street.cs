@@ -24,7 +24,10 @@ namespace Cariacity.game
             var cell = Common.GetNearbyCell(pos);
 
             if (IsBuildable(cell))
+            {
                 cell.obj = item;
+                Common.CurrentCity.StreetList.Add(cell);
+            }
             else
                 Object.Destroy(item);
 

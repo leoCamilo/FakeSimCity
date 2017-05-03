@@ -12,9 +12,15 @@
 
         public const float Hypotenuse = 1.41421356f;
         public const float HalfHypotenuse = 0.70710678118f;
-        public const float CameraSpeed = 20;
-        public const float MinCameraSpeed = 5;
-        public const float MaxCameraSpeed = 30;
+        
+        public const float MinCameraSpeed = 70;
+        public const float MaxCameraSpeed = 10;
+        public const float MinCameraZoom = 2;
+        public const float MaxCameraZoom = 10;
+
+        public const float AngleCoefficient = (MinCameraSpeed - MaxCameraSpeed) / (MinCameraZoom - MaxCameraZoom);
+        public const float DisplacementCoefficient = MinCameraSpeed - (MinCameraZoom * AngleCoefficient);
+
         public const float BackgroundTimer = 5;
 
         public const int GridSize = 100;

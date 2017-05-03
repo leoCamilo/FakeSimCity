@@ -29,7 +29,12 @@ namespace Cariacity.game
         public static void SetZoom(float deltaZoom)
         {
             var currentSize = Camera.main.orthographicSize;
-            Camera.main.orthographicSize = Mathf.Clamp(currentSize + deltaZoom, 2, 10);
+            Camera.main.orthographicSize = Mathf.Clamp(currentSize + deltaZoom, Constants.MinCameraZoom, Constants.MaxCameraZoom);
+        }
+
+        public static float GetZoom()
+        {
+            return Camera.main.orthographicSize;
         }
     }
 }
