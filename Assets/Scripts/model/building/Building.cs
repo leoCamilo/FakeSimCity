@@ -12,7 +12,17 @@ namespace Cariacity.game
             var _currentRenderer = _obj.GetComponent<Renderer>();
 
             if (_currentRenderer == null)
+            {
                 _currentRenderer = _obj.GetComponentInChildren<Renderer>();
+                var _mat = isOk ? Common.RightProject : Common.WrongProject;
+
+                _currentRenderer.material = _mat;
+
+                for (int i = 0; i < _currentRenderer.materials.Length; i++)
+                    _currentRenderer.materials[i] = _mat;
+
+                return;
+            }
 
             _currentRenderer.material = isOk ? Common.RightProject : Common.WrongProject;
         }

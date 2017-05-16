@@ -6,6 +6,7 @@ namespace Cariacity.game
     {
         public void BtnCancel()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
             UiController.EnableNormalMode();
             GameplayController.CancelInsertion();
         }
@@ -17,6 +18,7 @@ namespace Cariacity.game
 
         public void BtnAccept()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
             UiController.EnableNormalMode();
             GameplayController.AcceptInsertion();
         }

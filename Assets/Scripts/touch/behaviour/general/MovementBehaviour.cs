@@ -31,9 +31,12 @@ namespace Cariacity.game
 
         public void HighLight(GridCell cell)
         {
-            Common.ShowInfo(cell.ToString());
-            CommonModels.HighLightObj.transform.position = cell.center;
-            CommonModels.HighLightObj.SetActive(true);
+            if (cell.obj != null)
+            {
+                Common.ShowInfo(cell.ToString());
+                CommonModels.HighLightObj.transform.position = cell.center;
+                CommonModels.HighLightObj.SetActive(true);
+            }
         }
     }
 }

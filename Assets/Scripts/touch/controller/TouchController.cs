@@ -83,18 +83,21 @@ namespace Cariacity.game
                             _movement.Movment(Input.GetTouch(0));
                             break;
 
-                        case TouchPhase.Stationary:
-                            if (Time.time - _timer > 1 && _showStatus)
+                        case TouchPhase.Ended:
+                            lock (UiController.TouchOnUILock)
                             {
-                                var touchPoint = touch.position;
-                                var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
+                                if (!UiController.TouchOnUI && Time.time - _timer < 0.3 && _showStatus)
+                                {
+                                    var touchPoint = touch.position;
+                                    var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
 
-                                _movement.HighLight(Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y)));
+                                    _movement.HighLight(Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y)));
+                                }
+
+                                UiController.TouchOnUI = false;
                             }
 
                             break;
-
-                        case TouchPhase.Ended: _showStatus = false; break;
                     }
 
                     break;

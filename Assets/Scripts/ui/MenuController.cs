@@ -11,6 +11,7 @@ namespace Cariacity.game
 
         public void BackToGame()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
             UiController.EnableNormalMode();
         }
     }

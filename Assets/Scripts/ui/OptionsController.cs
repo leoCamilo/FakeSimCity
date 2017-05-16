@@ -17,6 +17,8 @@ namespace Cariacity.game
 
         public void BtnOption1()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
+
             if (_lastOption == 1)
             {
                 _isActive = !_isActive;
@@ -36,6 +38,8 @@ namespace Cariacity.game
 
         public void BtnOption2()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
+
             if (_lastOption == 2)
             {
                 _isActive = !_isActive;
@@ -55,6 +59,8 @@ namespace Cariacity.game
 
         public void BtnOption3()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
+
             if (_lastOption == 3)
             {
                 _isActive = !_isActive;
@@ -74,6 +80,7 @@ namespace Cariacity.game
 
         public void BtnOption4()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
             UiController.EnableEditionMode();
 
             GameplayController.SetInsertionModel(Tags.Clean);
@@ -82,6 +89,7 @@ namespace Cariacity.game
 
         public void BackBtn()
         {
+            lock (UiController.TouchOnUILock) { UiController.TouchOnUI = true; }
             UiController.EnableNormalMode();
         }
     }
