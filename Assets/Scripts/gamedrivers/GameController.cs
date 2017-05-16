@@ -39,20 +39,10 @@ namespace Cariacity.game
         {
             _setCommonData();
             _mainService = _service(Constants.BackgroundTimer);
+
             StartCoroutine(_mainService);
 
-            /* for show the grid
-            for (int i = 0; i < Common.GridSize; i++)
-            {
-                var tmpVec3 = new Vector3(i * Common.Hypotenuse, 0, 0);
-                Instantiate(LineModel, tmpVec3, Quaternion.Euler(90, 45, 0));
-                Instantiate(LineModel, tmpVec3, Quaternion.Euler(90, -45, 0));
-                tmpVec3 = -tmpVec3;
-                Instantiate(LineModel, tmpVec3, Quaternion.Euler(90, 45, 0));
-                Instantiate(LineModel, tmpVec3, Quaternion.Euler(90, -45, 0));
-            } */
-
-            var _mat = new GridCell[Constants.GridSize, Constants.GridSize];
+            var matrix = new GridCell[Constants.GridSize, Constants.GridSize];
             var _0idxPos = new Vector2(0, (Constants.GridSize / 2) * Constants.Hypotenuse - Constants.HalfHypotenuse);
 
             for (int i = 0; i < Constants.GridSize; i++)
@@ -61,13 +51,17 @@ namespace Cariacity.game
 
                 for (int j = 0; j < Constants.GridSize; j++)
                 {
-                    _mat[i, j] = new GridCell();
-                    _mat[i, j].i = i;
-                    _mat[i, j].j = j;
-                    _mat[i, j].center = new Vector3(_currentPos.x, 0, _currentPos.y);
+                    matrix[i, j] = new GridCell
+                    {
+                        i = i,
+                        j = j,
+                        center = new Vector3(_currentPos.x, 0, _currentPos.y)
+                    };
+
                     _currentPos += new Vector2(Constants.HalfHypotenuse, -Constants.HalfHypotenuse);
 
-                    // InitObj(Test, _mat[i, j].center);
+                    if (Random.Range(0, 100) < Constants.TreeProbability)
+                        matrix[i, j].obj = InitObj(Tree.Model, matrix[i, j].center, Quaternion.Euler(-90, Random.Range(0, 360), 0));
                 }
 
                 _0idxPos += new Vector2(-Constants.HalfHypotenuse, -Constants.HalfHypotenuse);
@@ -75,11 +69,11 @@ namespace Cariacity.game
 
             // _mat[0, 50].obj = InitObj(StreetModel, _mat[0, 50].center); // Initial road
 
-            _mat[49, 49].obj = InitObj(Street.Project, _mat[49, 49].center);
-            _mat[49, 50].obj = InitObj(Street.Project, _mat[49, 50].center);
-            _mat[50, 50].obj = InitObj(Street.Project, _mat[50, 50].center);
+            // matrix[49, 49].obj = InitObj(Street.Project, matrix[24, 24].center);
+            // matrix[49, 50].obj = InitObj(Street.Project, matrix[24, 25].center);
+            // matrix[50, 50].obj = InitObj(Street.Project, matrix[25, 25].center);
 
-            Common.Matrix = _mat;
+            Common.Matrix = matrix;
             Common.UpdateMoney();
         }
 

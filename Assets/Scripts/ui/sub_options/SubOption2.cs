@@ -4,27 +4,46 @@ namespace Cariacity.game
 {
     public class SubOption2 : MonoBehaviour
     {
-        public void BtnHospital()
-        {
-            UiController.EnableEditionMode();
+        private const int SMALL = 0;
+        private const int MEDIUM = 1;
+        private const int BIG = 2;
 
-            GameplayController.SetInsertionModel(Constants.HospitalTag);
+        public void BtnHospital(int healthType)
+        {
+            switch (healthType)
+            {
+                case BIG: GameplayController.SetInsertionModel(Tags.Hospital); break;
+                case SMALL: GameplayController.SetInsertionModel(Tags.FirstAidPost); break;
+                case MEDIUM: GameplayController.SetInsertionModel(Tags.Clinic); break;
+            }
+
+            UiController.EnableEditionMode();
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 
-        public void BtnPolice()
+        public void BtnPolice(int securityType)
         {
-            UiController.EnableEditionMode();
+            switch (securityType)
+            {
+                case BIG: GameplayController.SetInsertionModel(Tags.PoliceHeadquartes); break;
+                case SMALL: GameplayController.SetInsertionModel(Tags.SecurityCabin); break;
+                case MEDIUM: GameplayController.SetInsertionModel(Tags.PoliceStation); break;
+            }
 
-            GameplayController.SetInsertionModel(Constants.PoliceTag);
+            UiController.EnableEditionMode();
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 
-        public void BtnSchool()
+        public void BtnSchool(int educationType)
         {
-            UiController.EnableEditionMode();
+            switch (educationType)
+            {
+                case BIG: GameplayController.SetInsertionModel(Tags.University); break;
+                case SMALL: GameplayController.SetInsertionModel(Tags.DayCarePost); break;
+                case MEDIUM: GameplayController.SetInsertionModel(Tags.School); break;
+            }
 
-            GameplayController.SetInsertionModel(Constants.SchoolTag);
+            UiController.EnableEditionMode();
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
     }

@@ -19,25 +19,25 @@ namespace Cariacity.game
             if (_cell.j + 1 < Constants.GridSize)
             {
                 _obj = Common.Matrix[_cell.i, _cell.j + 1].obj;
-                if (_obj != null && _obj.tag == Constants.StreetTag) return 1;
+                if (_obj != null && _obj.tag == Tags.Street) return 1;
             }
 
             if (_cell.i + 1 < Constants.GridSize)
             {
                 _obj = Common.Matrix[_cell.i + 1, _cell.j].obj;
-                if (_obj != null && _obj.tag == Constants.StreetTag) return 2;
+                if (_obj != null && _obj.tag == Tags.Street) return 2;
             }
 
             if (_cell.j - 1 >= 0)
             {
                 _obj = Common.Matrix[_cell.i, _cell.j - 1].obj;
-                if (_obj != null && _obj.tag == Constants.StreetTag) return 3;
+                if (_obj != null && _obj.tag == Tags.Street) return 3;
             }
 
             if (_cell.i - 1 >= 0)
             {
                 _obj = Common.Matrix[_cell.i - 1, _cell.j].obj;
-                if (_obj != null && _obj.tag == Constants.StreetTag) return 4;
+                if (_obj != null && _obj.tag == Tags.Street) return 4;
             }
 
             return 0;

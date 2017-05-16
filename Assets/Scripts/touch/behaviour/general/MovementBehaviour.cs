@@ -28,5 +28,12 @@ namespace Cariacity.game
 
             _lastZoom = dis;
         }
+
+        public void HighLight(GridCell cell)
+        {
+            Common.ShowInfo(cell.ToString());
+            CommonModels.HighLightObj.transform.position = cell.center;
+            CommonModels.HighLightObj.SetActive(true);
+        }
     }
 }

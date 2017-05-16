@@ -10,6 +10,10 @@ namespace Cariacity.game
         public static void SetRenderer(GameObject _obj, bool isOk)
         {
             var _currentRenderer = _obj.GetComponent<Renderer>();
+
+            if (_currentRenderer == null)
+                _currentRenderer = _obj.GetComponentInChildren<Renderer>();
+
             _currentRenderer.material = isOk ? Common.RightProject : Common.WrongProject;
         }
 
@@ -39,12 +43,12 @@ namespace Cariacity.game
             {
                 try { _obj = Common.Matrix[i, y0 - 1].obj; } catch (IndexOutOfRangeException) { _obj = null; }
 
-                if (_obj != null && _obj.tag == Constants.StreetTag)
+                if (_obj != null && _obj.tag == Tags.Street)
                     return true;
 
                 try { _obj = Common.Matrix[i, y1 + 1].obj; } catch (IndexOutOfRangeException) { _obj = null; }
 
-                if (_obj != null && _obj.tag == Constants.StreetTag)
+                if (_obj != null && _obj.tag == Tags.Street)
                     return true;
             }
 
@@ -52,12 +56,12 @@ namespace Cariacity.game
             {
                 try { _obj = Common.Matrix[x0 - 1, j].obj; } catch (IndexOutOfRangeException) { _obj = null; }
 
-                if (_obj != null && _obj.tag == Constants.StreetTag)
+                if (_obj != null && _obj.tag == Tags.Street)
                     return true;
 
                 try { _obj = Common.Matrix[x1 + 1, j].obj; } catch (IndexOutOfRangeException) { _obj = null; }
 
-                if (_obj != null && _obj.tag == Constants.StreetTag)
+                if (_obj != null && _obj.tag == Tags.Street)
                     return true;
             }
 

@@ -35,19 +35,20 @@ namespace Cariacity.game
                 StartCoroutine(_pathAnimator(0.2f));
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            switch (Input.touchCount)
             {
-                _animator.SetTrigger(_hashList[1]);
-            }
+                case 1:
+                    var touch = Input.GetTouch(0);
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                _animator.SetTrigger(_hashList[2]);
-            }
+                    switch (touch.phase)
+                    {
+                        case TouchPhase.Began:
+                            _path = CarPath.Get(gameObject);
+                            StartCoroutine(_pathAnimator(0.2f));
+                            break;
+                    }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                _animator.SetTrigger(_hashList[3]);
+                    break;
             }
         }
 

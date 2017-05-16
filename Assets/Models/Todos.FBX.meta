@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: 45c413c84095ac54e91f6f1d50f2e5e1
+timeCreated: 1488866780
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: casa 01
+    100002: casa 01 grama
+    100004: casa 01 muro
+    100006: casa 01 piso entrada
+    100008: casa 01 portao
+    100010: casa 02
+    100012: casa 02 grama
+    100014: casa 02 muro
+    100016: casa 02 piso entrada
+    100018: casa 02 portao
+    100020: casa 03
+    100022: casa 03 grama
+    100024: casa 03 muro
+    100026: casa 03 piso entrada
+    100028: casa 03 portao
+    100030: hospital
+    100032: hospital grama
+    100034: hospital piso entrada
+    100036: policia
+    100038: policia grama
+    100040: policia piso entrada
+    100042: predio 01
+    100044: predio 01 grama
+    100046: predio 01 muro
+    100048: predio 01 piso entrada
+    100050: predio 01 portao
+    100052: predio 02
+    100054: predio 02 grama
+    100056: predio 02 muro
+    100058: predio 02 piso entrada
+    100060: predio 02 portao
+    100062: //RootNode
+    400000: casa 01
+    400002: casa 01 grama
+    400004: casa 01 muro
+    400006: casa 01 piso entrada
+    400008: casa 01 portao
+    400010: casa 02
+    400012: casa 02 grama
+    400014: casa 02 muro
+    400016: casa 02 piso entrada
+    400018: casa 02 portao
+    400020: casa 03
+    400022: casa 03 grama
+    400024: casa 03 muro
+    400026: casa 03 piso entrada
+    400028: casa 03 portao
+    400030: hospital
+    400032: hospital grama
+    400034: hospital piso entrada
+    400036: policia
+    400038: policia grama
+    400040: policia piso entrada
+    400042: predio 01
+    400044: predio 01 grama
+    400046: predio 01 muro
+    400048: predio 01 piso entrada
+    400050: predio 01 portao
+    400052: predio 02
+    400054: predio 02 grama
+    400056: predio 02 muro
+    400058: predio 02 piso entrada
+    400060: predio 02 portao
+    400062: //RootNode
+    2300000: casa 01
+    2300002: casa 01 grama
+    2300004: casa 01 muro
+    2300006: casa 01 piso entrada
+    2300008: casa 01 portao
+    2300010: casa 02
+    2300012: casa 02 grama
+    2300014: casa 02 muro
+    2300016: casa 02 piso entrada
+    2300018: casa 02 portao
+    2300020: casa 03
+    2300022: casa 03 grama
+    2300024: casa 03 muro
+    2300026: casa 03 piso entrada
+    2300028: casa 03 portao
+    2300030: hospital
+    2300032: hospital grama
+    2300034: hospital piso entrada
+    2300036: policia
+    2300038: policia grama
+    2300040: policia piso entrada
+    2300042: predio 01
+    2300044: predio 01 grama
+    2300046: predio 01 muro
+    2300048: predio 01 piso entrada
+    2300050: predio 01 portao
+    2300052: predio 02
+    2300054: predio 02 grama
+    2300056: predio 02 muro
+    2300058: predio 02 piso entrada
+    2300060: predio 02 portao
+    3300000: casa 01
+    3300002: casa 01 grama
+    3300004: casa 01 muro
+    3300006: casa 01 piso entrada
+    3300008: casa 01 portao
+    3300010: casa 02
+    3300012: casa 02 grama
+    3300014: casa 02 muro
+    3300016: casa 02 piso entrada
+    3300018: casa 02 portao
+    3300020: casa 03
+    3300022: casa 03 grama
+    3300024: casa 03 muro
+    3300026: casa 03 piso entrada
+    3300028: casa 03 portao
+    3300030: hospital
+    3300032: hospital grama
+    3300034: hospital piso entrada
+    3300036: policia
+    3300038: policia grama
+    3300040: policia piso entrada
+    3300042: predio 01
+    3300044: predio 01 grama
+    3300046: predio 01 muro
+    3300048: predio 01 piso entrada
+    3300050: predio 01 portao
+    3300052: predio 02
+    3300054: predio 02 grama
+    3300056: predio 02 muro
+    3300058: predio 02 piso entrada
+    3300060: predio 02 portao
+    4300000: casa 01 grama
+    4300002: casa 01 muro
+    4300004: casa 01 piso entrada
+    4300006: casa 02 grama
+    4300008: casa 02 muro
+    4300010: casa 02 piso entrada
+    4300012: casa 03 grama
+    4300014: casa 03 muro
+    4300016: casa 03 piso entrada
+    4300018: predio 01 grama
+    4300020: predio 01 muro
+    4300022: predio 02 grama
+    4300024: predio 02 muro
+    4300026: policia grama
+    4300028: hospital grama
+    4300030: hospital piso entrada
+    4300032: policia piso entrada
+    4300034: predio 02 piso entrada
+    4300036: predio 01 piso entrada
+    4300038: casa 01
+    4300040: casa 02
+    4300042: casa 03
+    4300044: predio 01
+    4300046: predio 02
+    4300048: policia
+    4300050: hospital
+    4300052: casa 01 portao
+    4300054: casa 02 portao
+    4300056: casa 03 portao
+    4300058: predio 02 portao
+    4300060: predio 01 portao
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

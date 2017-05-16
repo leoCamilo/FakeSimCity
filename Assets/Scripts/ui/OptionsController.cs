@@ -76,7 +76,7 @@ namespace Cariacity.game
         {
             UiController.EnableEditionMode();
 
-            GameplayController.SetInsertionModel(Constants.CleanTag);
+            GameplayController.SetInsertionModel(Tags.Clean);
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 

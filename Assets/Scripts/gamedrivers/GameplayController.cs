@@ -67,7 +67,7 @@ namespace Cariacity.game
                         var boolflag = School.IsBuildable(_cell);
 
                         if (boolflag)
-                            _cell.obj = Instantiate(School.Project, _cell.center, Quaternion.Euler(0, 45, 0));
+                            _cell.obj = Instantiate(School.Data.Project, _cell.center, Quaternion.Euler(0, 45, 0));
 
                         // if (_cell.obj == null)
                         //     _cell.obj = Instantiate(School.Project, _cell.center, Quaternion.Euler(0, 45, 0));

@@ -1,16 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Cariacity.game
 {
     public class School : Building
     {
-        // private static float value = 500;
-
-        public static GameObject Project;
-        public static GameObject Model;
-
-        // private static int _influenceBound = 5;
+        public static BuildingData Data = new BuildingData
+        {
+            InfluenceBound = 5,
+            Value = 500
+        };
 
         public static bool IsBuildable(GridCell cell)
         {
@@ -19,6 +17,17 @@ namespace Cariacity.game
 
         public static void SetOnMap(Vector3 pos)
         {
+            var cell = Common.GetNearbyCell(pos);
+
+            if (IsBuildable(cell))
+            {
+                cell.obj = GameController.InitObj(Data.Model, pos);
+            }
+        }
+
+        public static void RemoveFromMap(Vector3 pos)
+        {
+
         }
     }
 }

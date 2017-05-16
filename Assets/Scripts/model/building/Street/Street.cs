@@ -44,19 +44,23 @@ namespace Cariacity.game
         public static void SetOrientation(Vector3 position, bool recursive)
         {
             var cell = Common.GetNearbyCell(position);
-            var conections = 0;
 
-            bool[] directions = { false, false, false, false };
+            if (cell.obj.tag == Tags.StreetProj || cell.obj.tag == Tags.Street)
+            {
+                var conections = 0;
 
-            _compareSideCell(cell.i, cell.j + 1, 0, ref conections, directions, recursive);
-            _compareSideCell(cell.i, cell.j - 1, 2, ref conections, directions, recursive);
-            _compareSideCell(cell.i + 1, cell.j, 1, ref conections, directions, recursive);
-            _compareSideCell(cell.i - 1, cell.j, 3, ref conections, directions, recursive);
+                bool[] directions = { false, false, false, false };
 
-            Object.Destroy(cell.obj);
+                _compareSideCell(cell.i, cell.j + 1, 0, ref conections, directions, recursive);
+                _compareSideCell(cell.i, cell.j - 1, 2, ref conections, directions, recursive);
+                _compareSideCell(cell.i + 1, cell.j, 1, ref conections, directions, recursive);
+                _compareSideCell(cell.i - 1, cell.j, 3, ref conections, directions, recursive);
 
-            var tmp = StreetOrientation.GetOrientation(conections, directions);
-            cell.obj = GameController.InitObj(tmp.Model, cell.center, tmp.Rotation);
+                Object.Destroy(cell.obj);
+
+                var tmp = StreetOrientation.GetOrientation(conections, directions);
+                cell.obj = GameController.InitObj(tmp.Model, cell.center, tmp.Rotation);
+            }
         }
 
         private static void _compareSideCell(int i, int j, int idx, ref int conections, bool[] directions, bool isRecursive)
@@ -69,14 +73,14 @@ namespace Cariacity.game
 
                 if (obj == null) return;
 
-                if (obj.tag == Constants.StreetProjTag)
+                if (obj.tag == Tags.StreetProj)
                 {
                     conections++;
                     directions[idx] = true;
                     return;
                 }
 
-                if (obj.tag == Constants.StreetTag)
+                if (obj.tag == Tags.Street)
                 {
                     if (isRecursive) SetOrientation(Common.Matrix[i, j].center, false);
                     conections++;

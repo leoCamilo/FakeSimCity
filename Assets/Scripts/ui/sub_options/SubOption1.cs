@@ -8,7 +8,7 @@ namespace Cariacity.game
         {
             UiController.EnableEditionMode();
 
-            GameplayController.SetInsertionModel(Constants.StreetTag);
+            GameplayController.SetInsertionModel(Tags.Street);
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
 
@@ -16,7 +16,7 @@ namespace Cariacity.game
         {
             UiController.EnableEditionMode();
 
-            GameplayController.SetInsertionModel(Constants.HomeTag);
+            GameplayController.SetInsertionModel(Tags.Home);
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
     }

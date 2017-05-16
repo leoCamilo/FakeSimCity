@@ -4,8 +4,17 @@ namespace Cariacity.game
 {
     public class ModelsInit : MonoBehaviour
     {
+        public GameObject ClinicModel;
         public GameObject HospitalModel;
-        public GameObject PoliceModel;
+        public GameObject FirsAidPostModel;
+
+        public GameObject SchoolModel;
+        public GameObject UniversityModel;
+        public GameObject DayCarePostModel;
+
+        public GameObject SecurityCabinModel;
+        public GameObject PoliceStationModel;
+        public GameObject PoliceHeadquartesModel;
 
         public GameObject StreetTModel;
         public GameObject StreetEndModel;
@@ -18,6 +27,9 @@ namespace Cariacity.game
         public GameObject HomeModel3;
         public GameObject HomeModel4;
         public GameObject HomeModel5;
+
+        public GameObject TreeModel;
+        public GameObject Highlight;
 
         private void Awake()
         {
@@ -33,8 +45,21 @@ namespace Cariacity.game
             Street.CornerModel = StreetCornerModel;
             Street.CrossingModel = StreetCrossingModel;
 
-            Police.Model = PoliceModel;
+            Clinic.Data.Model = ClinicModel;
             Hospital.Model = HospitalModel;
+            FirstAidPost.Data.Model = FirsAidPostModel;
+
+            School.Data.Model = SchoolModel;
+            University.Data.Model = UniversityModel;
+            DayCarePost.Data.Model = DayCarePostModel;
+
+            SecurityCabin.Data.Model = SecurityCabinModel;
+            PoliceStation.Data.Model = PoliceStationModel;
+            PoliceHeadquarters.Data.Model = PoliceHeadquartesModel;
+
+            Tree.Model = TreeModel;
+
+            CommonModels.HighLightObj = Highlight;
         }
     }
 }

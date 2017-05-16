@@ -21,12 +21,18 @@ namespace Cariacity.game
         {
             switch (type)
             {
-                case Constants.HomeTag: _behaviour = new HomeBehaviour(); break;
-                case Constants.CleanTag: _behaviour = new CleanBehaviour(); break;
-                case Constants.StreetTag: _behaviour = new StreetBehaviour(); break;
-                case Constants.PoliceTag: _behaviour = new PoliceBehaviour(); break;
-                case Constants.SchoolTag: _behaviour = new SchoolBehaviour(); break;
-                case Constants.HospitalTag: _behaviour = new HospitalBehaviour(); break;
+                case Tags.Home: _behaviour = new HomeBehaviour(); break;
+                case Tags.Clean: _behaviour = new CleanBehaviour(); break;
+                case Tags.Street: _behaviour = new StreetBehaviour(); break;
+                case Tags.Clinic: _behaviour = new HealthBehaviour(HealthBuilding.Clinic); break;
+                case Tags.School: _behaviour = new EducationBehaviour(EducationBuilding.School); break;
+                case Tags.Hospital: _behaviour = new HealthBehaviour(HealthBuilding.Hospital); break;
+                case Tags.University: _behaviour = new EducationBehaviour(EducationBuilding.University); break;
+                case Tags.DayCarePost: _behaviour = new EducationBehaviour(EducationBuilding.DayCarePost); break;
+                case Tags.FirstAidPost: _behaviour = new HealthBehaviour(HealthBuilding.FirstAidPost); break;
+                case Tags.SecurityCabin: _behaviour = new SecurityBehaviour(SecurityBuilding.SecurityCabin); break;
+                case Tags.PoliceStation: _behaviour = new SecurityBehaviour(SecurityBuilding.PoliceStation); break;
+                case Tags.PoliceHeadquartes: _behaviour = new SecurityBehaviour(SecurityBuilding.PoliceHeadquarters); break;
             }
         }
 
@@ -41,8 +47,8 @@ namespace Cariacity.game
 
         public void StartInsertionMode()
         {
-            if (Input.touchCount > 0) {
-
+            if (Input.touchCount > 0)
+            {
                 var myTouch = Input.GetTouch(0);
                 var touchPoint = myTouch.position;
                 var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
@@ -51,8 +57,9 @@ namespace Cariacity.game
                 switch (myTouch.phase)
                 {
                     case TouchPhase.Began: _behaviour.OnBegan(cell); break;
-                    case TouchPhase.Moved: _behaviour.OnMoved(cell); break; // stationary
+                    case TouchPhase.Moved: _behaviour.OnMoved(cell); break;
                     case TouchPhase.Ended: _behaviour.OnEnded(cell); break;
+                    case TouchPhase.Stationary: _behaviour.OnMoved(cell); break;
                 }
             }
         }
@@ -81,10 +88,8 @@ namespace Cariacity.game
                             {
                                 var touchPoint = touch.position;
                                 var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
-                                var _cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
 
-                                // Common.Log(_cell.ToString());
-                                Common.ShowInfo(_cell.ToString());
+                                _movement.HighLight(Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y)));
                             }
 
                             break;

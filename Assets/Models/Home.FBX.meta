@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 5f28680ba2c32174b863bed2d6ea9176
+timeCreated: 1489092495
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arvore
+    100002: arvore001
+    100004: arvore002
+    100006: Bascula
+    100008: Box001
+    100010: Box002
+    100012: Box003
+    100014: caminho
+    100016: Casa1
+    100018: grama
+    100020: Guardacorpo
+    100022: //RootNode
+    100024: Janela 1
+    100026: Janela 10
+    100028: Janela 2
+    100030: Janela 3
+    100032: Janela 4
+    100034: Janela 5
+    100036: Janela 6
+    100038: Janela 7
+    100040: Janela 8
+    100042: Janela 9
+    100044: muro
+    100046: muro 2
+    100048: Paredes
+    100050: piso garagem
+    100052: Porta
+    100054: Porta dupla 1
+    100056: Porta dupla 2
+    100058: portao
+    100060: Pyramid001
+    100062: Pyramid002
+    100064: Pyramid003
+    100066: Pyramid004
+    100068: Pyramid005
+    100070: Pyramid006
+    100072: Pyramid007
+    100074: Pyramid008
+    100076: Pyramid009
+    100078: Telhado direita
+    100080: Telhado esqiuerda
+    400000: arvore
+    400002: arvore001
+    400004: arvore002
+    400006: Bascula
+    400008: Box001
+    400010: Box002
+    400012: Box003
+    400014: caminho
+    400016: Casa1
+    400018: grama
+    400020: Guardacorpo
+    400022: //RootNode
+    400024: Janela 1
+    400026: Janela 10
+    400028: Janela 2
+    400030: Janela 3
+    400032: Janela 4
+    400034: Janela 5
+    400036: Janela 6
+    400038: Janela 7
+    400040: Janela 8
+    400042: Janela 9
+    400044: muro
+    400046: muro 2
+    400048: Paredes
+    400050: piso garagem
+    400052: Porta
+    400054: Porta dupla 1
+    400056: Porta dupla 2
+    400058: portao
+    400060: Pyramid001
+    400062: Pyramid002
+    400064: Pyramid003
+    400066: Pyramid004
+    400068: Pyramid005
+    400070: Pyramid006
+    400072: Pyramid007
+    400074: Pyramid008
+    400076: Pyramid009
+    400078: Telhado direita
+    400080: Telhado esqiuerda
+    2300000: Bascula
+    2300002: Box001
+    2300004: Box002
+    2300006: Box003
+    2300008: caminho
+    2300010: grama
+    2300012: Guardacorpo
+    2300014: Janela 1
+    2300016: Janela 10
+    2300018: Janela 2
+    2300020: Janela 3
+    2300022: Janela 4
+    2300024: Janela 5
+    2300026: Janela 6
+    2300028: Janela 7
+    2300030: Janela 8
+    2300032: Janela 9
+    2300034: muro
+    2300036: muro 2
+    2300038: Paredes
+    2300040: piso garagem
+    2300042: Porta
+    2300044: Porta dupla 1
+    2300046: Porta dupla 2
+    2300048: portao
+    2300050: Pyramid001
+    2300052: Pyramid002
+    2300054: Pyramid003
+    2300056: Pyramid004
+    2300058: Pyramid005
+    2300060: Pyramid006
+    2300062: Pyramid007
+    2300064: Pyramid008
+    2300066: Pyramid009
+    2300068: Telhado direita
+    2300070: Telhado esqiuerda
+    3300000: Bascula
+    3300002: Box001
+    3300004: Box002
+    3300006: Box003
+    3300008: caminho
+    3300010: grama
+    3300012: Guardacorpo
+    3300014: Janela 1
+    3300016: Janela 10
+    3300018: Janela 2
+    3300020: Janela 3
+    3300022: Janela 4
+    3300024: Janela 5
+    3300026: Janela 6
+    3300028: Janela 7
+    3300030: Janela 8
+    3300032: Janela 9
+    3300034: muro
+    3300036: muro 2
+    3300038: Paredes
+    3300040: piso garagem
+    3300042: Porta
+    3300044: Porta dupla 1
+    3300046: Porta dupla 2
+    3300048: portao
+    3300050: Pyramid001
+    3300052: Pyramid002
+    3300054: Pyramid003
+    3300056: Pyramid004
+    3300058: Pyramid005
+    3300060: Pyramid006
+    3300062: Pyramid007
+    3300064: Pyramid008
+    3300066: Pyramid009
+    3300068: Telhado direita
+    3300070: Telhado esqiuerda
+    4300000: Telhado esqiuerda
+    4300002: Telhado direita
+    4300004: Guardacorpo
+    4300006: Paredes
+    4300008: piso garagem
+    4300010: Janela 10
+    4300012: Janela 9
+    4300014: Janela 8
+    4300016: Bascula
+    4300018: Janela 6
+    4300020: Janela 7
+    4300022: Porta dupla 2
+    4300024: Janela 5
+    4300026: Janela 3
+    4300028: Janela 4
+    4300030: Janela 1
+    4300032: Janela 2
+    4300034: Porta dupla 1
+    4300036: Porta
+    4300038: grama
+    4300040: portao
+    4300042: muro
+    4300044: muro 2
+    4300046: Pyramid002
+    4300048: Pyramid003
+    4300050: Pyramid001
+    4300052: Box001
+    4300054: Pyramid004
+    4300056: Pyramid005
+    4300058: Pyramid006
+    4300060: Box002
+    4300062: Pyramid007
+    4300064: Pyramid008
+    4300066: Pyramid009
+    4300068: Box003
+    4300070: caminho
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

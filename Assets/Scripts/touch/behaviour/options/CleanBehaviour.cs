@@ -38,11 +38,12 @@ namespace Cariacity.game
 
                 switch (item.tag)
                 {
-                    case Constants.HomeTag: Home.RemoveFromMap(pos); break;
-                    case Constants.StreetTag: Street.RemoveFromMap(pos); break;
-                    case Constants.SchoolTag:
-                    case Constants.PoliceTag: Police.RemoveFromMap(pos); break;
-                    case Constants.HospitalTag: Hospital.RemoveFromMap(pos); break;
+                    case Tags.Tree: Tree.RemoveFromMap(pos); break;
+                    case Tags.Home: Home.RemoveFromMap(pos); break;
+                    case Tags.Street: Street.RemoveFromMap(pos); break;
+                    case Tags.School:
+                    case Tags.SecurityCabin: SecurityCabin.RemoveFromMap(pos); break;
+                    case Tags.Hospital: Hospital.RemoveFromMap(pos); break;
                 }
             }
         }
