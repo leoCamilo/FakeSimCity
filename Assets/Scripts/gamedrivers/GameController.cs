@@ -69,7 +69,15 @@ namespace Cariacity.game
 
             // _mat[0, 50].obj = InitObj(StreetModel, _mat[0, 50].center); // Initial road
 
-            // matrix[49, 49].obj = InitObj(Street.Project, matrix[24, 24].center);
+            matrix[24, 24].obj = InitObj(Street.Project, matrix[24, 24].center);
+            matrix[25, 24].obj = InitObj(Street.Project, matrix[25, 24].center);
+            matrix[26, 24].obj = InitObj(Street.Project, matrix[26, 24].center);
+            matrix[27, 24].obj = InitObj(Street.Project, matrix[27, 24].center);
+            matrix[28, 24].obj = InitObj(Street.Project, matrix[28, 24].center);
+            matrix[29, 24].obj = InitObj(Street.Project, matrix[29, 24].center);
+            matrix[24, 25].obj = InitObj(Street.Project, matrix[24, 25].center);
+            matrix[24, 26].obj = InitObj(Street.Project, matrix[24, 26].center);
+
             // matrix[49, 50].obj = InitObj(Street.Project, matrix[24, 25].center);
             // matrix[50, 50].obj = InitObj(Street.Project, matrix[25, 25].center);
 
