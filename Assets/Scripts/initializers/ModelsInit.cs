@@ -28,6 +28,8 @@ namespace Cariacity.game
         public GameObject HomeModel4;
         public GameObject HomeModel5;
 
+        public GameObject StoreModel1;
+
         public GameObject TreeModel;
         public GameObject Highlight;
 
@@ -38,6 +40,8 @@ namespace Cariacity.game
             Home.Model[2] = HomeModel3;
             Home.Model[3] = HomeModel4;
             Home.Model[4] = HomeModel5;
+
+            Store.Model = StoreModel1;
 
             Street.TModel = StreetTModel;
             Street.EndModel= StreetEndModel;

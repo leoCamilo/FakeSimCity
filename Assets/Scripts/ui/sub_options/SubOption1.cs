@@ -19,5 +19,13 @@ namespace Cariacity.game
             GameplayController.SetInsertionModel(Tags.Home);
             GameplayController.SetCurrentMode(TouchBehavior.Building);
         }
+
+        public void BtnStore()
+        {
+            UiController.EnableEditionMode();
+
+            GameplayController.SetInsertionModel(Tags.Store);
+            GameplayController.SetCurrentMode(TouchBehavior.Building);
+        }
     }
 }

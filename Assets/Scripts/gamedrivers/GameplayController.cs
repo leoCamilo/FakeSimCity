@@ -60,19 +60,21 @@ namespace Cariacity.game
                 {
                     var touchPoint = Input.mousePosition;
                     var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
-
                     var _cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
+
                     if (_cell != null)
                     {
-                        var boolflag = School.IsBuildable(_cell);
+                        lock (UiController.TouchOnUILock)
+                        {
+                            if (!UiController.TouchOnUI)
+                            {
+                                Common.ShowInfo(_cell.ToString());
+                                CommonModels.HighLightObj.transform.position = _cell.center;
+                                CommonModels.HighLightObj.SetActive(true);
+                            }
 
-                        if (boolflag)
-                            _cell.obj = Instantiate(School.Data.Project, _cell.center, Quaternion.Euler(0, 45, 0));
-
-                        // if (_cell.obj == null)
-                        //     _cell.obj = Instantiate(School.Project, _cell.center, Quaternion.Euler(0, 45, 0));
-                        // else
-                        // Destroy(_cell.obj);
+                            UiController.TouchOnUI = false;
+                        }
                     }
 
                     //Instantiate(Model2, cameraPoint, Quaternion.Euler(-45, 0, 0));    // touch direction, !important

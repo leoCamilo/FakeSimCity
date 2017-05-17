@@ -28,11 +28,6 @@ namespace Cariacity.game
             _UI.GetChild(6).gameObject.SetActive(true);
         }
 
-        public void LockUI()
-        {
-            lock (TouchOnUILock) { TouchOnUI = true; }
-        }
-
         public static void EnableEditionMode()
         {
             _UI.GetChild(2).gameObject.SetActive(true);

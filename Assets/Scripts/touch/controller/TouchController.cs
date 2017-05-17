@@ -23,6 +23,7 @@ namespace Cariacity.game
             {
                 case Tags.Home: _behaviour = new HomeBehaviour(); break;
                 case Tags.Clean: _behaviour = new CleanBehaviour(); break;
+                case Tags.Store: _behaviour = new StoreBehaviour(); break;
                 case Tags.Street: _behaviour = new StreetBehaviour(); break;
                 case Tags.Clinic: _behaviour = new HealthBehaviour(HealthBuilding.Clinic); break;
                 case Tags.School: _behaviour = new EducationBehaviour(EducationBuilding.School); break;
@@ -90,8 +91,10 @@ namespace Cariacity.game
                                 {
                                     var touchPoint = touch.position;
                                     var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
+                                    var cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
 
-                                    _movement.HighLight(Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y)));
+                                    if (cell.obj.tag == Tags.Home)
+                                        _movement.HighLight(cell);
                                 }
 
                                 UiController.TouchOnUI = false;

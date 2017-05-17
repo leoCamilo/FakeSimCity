@@ -4,6 +4,7 @@
     {
         public const string Tree = "tree";
         public const string Home = "home";
+        public const string Store = "store";
         public const string Clean = "clean";
         public const string Street = "street";
 

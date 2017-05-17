@@ -17,11 +17,13 @@ namespace Cariacity.game
         public GameObject PoliceHeadquartesProject;
 
         public GameObject HomeProject;
+        public GameObject StoreProject;
         public GameObject StreetProject;
 
         private void Awake()
         {
             Home.Project = HomeProject;
+            Store.Project = StoreProject;
             Street.Project = StreetProject;
 
             Clinic.Data.Project = ClinicProject;

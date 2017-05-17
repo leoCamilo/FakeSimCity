@@ -31,7 +31,7 @@ namespace Cariacity.game
                 m_lastFramerate = (float)m_frameCounter / m_timeCounter;
                 m_frameCounter = 0;
                 m_timeCounter = 0.0f;
-                Common.Log("FPS: " + m_lastFramerate);
+                // Common.Log("FPS: " + m_lastFramerate);
             }
         }
 
