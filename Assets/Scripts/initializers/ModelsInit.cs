@@ -30,9 +30,6 @@ namespace Cariacity.game
 
         public GameObject StoreModel1;
 
-        public GameObject TreeModel;
-        public GameObject Highlight;
-
         private void Awake()
         {
             Home.Model[0] = HomeModel1;
@@ -60,10 +57,6 @@ namespace Cariacity.game
             SecurityCabin.Data.Model = SecurityCabinModel;
             PoliceStation.Data.Model = PoliceStationModel;
             PoliceHeadquarters.Data.Model = PoliceHeadquartesModel;
-
-            Tree.Model = TreeModel;
-
-            CommonModels.HighLightObj = Highlight;
         }
     }
 }
