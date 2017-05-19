@@ -7,6 +7,7 @@ namespace Cariacity.game
 
     public class CarAnimator : MonoBehaviour
     {
+        private const float carAnimationDuration = 0.5f;
         private Animator _animator;
         private int[] _hashList;
 
@@ -20,7 +21,7 @@ namespace Cariacity.game
             _hashList[2] = Animator.StringToHash("turn_left");
             _hashList[3] = Animator.StringToHash("return");
 
-            StartCoroutine(_pathAnimator(0.2f));
+            StartCoroutine(_pathAnimator(carAnimationDuration));
         }
 
         void Update()

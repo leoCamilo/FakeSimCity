@@ -69,15 +69,15 @@ namespace Cariacity.game
 
             // _mat[0, 50].obj = InitObj(StreetModel, _mat[0, 50].center); // Initial road
 
-            matrix[23, 24].obj = InitObj(Street.Project, matrix[23, 24].center);
-            matrix[24, 24].obj = InitObj(Street.Project, matrix[24, 24].center);
-            matrix[25, 24].obj = InitObj(Street.Project, matrix[25, 24].center);
-            matrix[26, 24].obj = InitObj(Street.Project, matrix[26, 24].center);
-            matrix[27, 24].obj = InitObj(Street.Project, matrix[27, 24].center);
-            matrix[28, 24].obj = InitObj(Street.Project, matrix[28, 24].center);
-            matrix[29, 24].obj = InitObj(Street.Project, matrix[29, 24].center);
-            matrix[24, 25].obj = InitObj(Street.Project, matrix[24, 25].center);
-            matrix[24, 26].obj = InitObj(Street.Project, matrix[24, 26].center);
+            Destroy(matrix[23, 24].obj); matrix[23, 24].obj = InitObj(Street.LineModel, matrix[23, 24].center);
+            Destroy(matrix[24, 24].obj); matrix[24, 24].obj = InitObj(Street.TModel, matrix[24, 24].center, Quaternion.Euler(0, -135, 0));
+            Destroy(matrix[25, 24].obj); matrix[25, 24].obj = InitObj(Street.LineModel, matrix[25, 24].center);
+            Destroy(matrix[26, 24].obj); matrix[26, 24].obj = InitObj(Street.LineModel, matrix[26, 24].center);
+            Destroy(matrix[27, 24].obj); matrix[27, 24].obj = InitObj(Street.LineModel, matrix[27, 24].center);
+            Destroy(matrix[28, 24].obj); matrix[28, 24].obj = InitObj(Street.LineModel, matrix[28, 24].center);
+            Destroy(matrix[29, 24].obj); matrix[29, 24].obj = InitObj(Street.LineModel, matrix[29, 24].center);
+            Destroy(matrix[24, 25].obj); matrix[24, 25].obj = InitObj(Street.LineModel, matrix[24, 25].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[24, 26].obj); matrix[24, 26].obj = InitObj(Street.LineModel, matrix[24, 26].center, Quaternion.Euler(0, 135, 0));
 
             InitObj(Car.Models[0], matrix[24, 24].center);
 
