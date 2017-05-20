@@ -24,13 +24,6 @@ namespace Cariacity.game
             StartCoroutine(_pathAnimator(carAnimationDuration));
         }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow)) { _animator.SetTrigger(_hashList[0]); }
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) { _animator.SetTrigger(_hashList[2]); }
-            if (Input.GetKeyDown(KeyCode.RightArrow)) { _animator.SetTrigger(_hashList[1]); }
-        }
-
         private IEnumerator _pathAnimator(float timer)
         {
             while (true)

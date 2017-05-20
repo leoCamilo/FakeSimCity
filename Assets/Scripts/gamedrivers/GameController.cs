@@ -67,8 +67,11 @@ namespace Cariacity.game
                 _0idxPos += new Vector2(-Constants.HalfHypotenuse, -Constants.HalfHypotenuse);
             }
 
-            // _mat[0, 50].obj = InitObj(StreetModel, _mat[0, 50].center); // Initial road
-
+            Destroy(matrix[22, 20].obj); matrix[22, 20].obj = InitObj(Street.LineModel, matrix[22, 20].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 21].obj); matrix[22, 21].obj = InitObj(Street.LineModel, matrix[22, 21].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 22].obj); matrix[22, 22].obj = InitObj(Street.LineModel, matrix[22, 22].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 23].obj); matrix[22, 23].obj = InitObj(Street.LineModel, matrix[22, 23].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 24].obj); matrix[22, 24].obj = InitObj(Street.CornerModel, matrix[22, 24].center);
             Destroy(matrix[23, 24].obj); matrix[23, 24].obj = InitObj(Street.LineModel, matrix[23, 24].center);
             Destroy(matrix[24, 24].obj); matrix[24, 24].obj = InitObj(Street.TModel, matrix[24, 24].center, Quaternion.Euler(0, -135, 0));
             Destroy(matrix[25, 24].obj); matrix[25, 24].obj = InitObj(Street.LineModel, matrix[25, 24].center);
@@ -80,9 +83,6 @@ namespace Cariacity.game
             Destroy(matrix[24, 26].obj); matrix[24, 26].obj = InitObj(Street.LineModel, matrix[24, 26].center, Quaternion.Euler(0, 135, 0));
 
             InitObj(Car.Models[0], matrix[24, 24].center);
-
-            // matrix[49, 50].obj = InitObj(Street.Project, matrix[24, 25].center);
-            // matrix[50, 50].obj = InitObj(Street.Project, matrix[25, 25].center);
 
             Common.Matrix = matrix;
             Common.UpdateMoney();

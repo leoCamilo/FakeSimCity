@@ -5,22 +5,36 @@ namespace Cariacity.game
 {
     public class CarPath
     {
+
+        private const int upAngle = 315;
+        private const int downAngle = 135;
+        private const int leftAngle = 225;
+        private const int rightAngle = 45;
+
         public static CarAnimationDirection Get (GameObject car)
         {
             var list = new List<CarAnimationDirection>();
             var cell = Common.GetNearbyCell(car.transform.position);
+            var yAngle = NearbyCorrespondent(car.transform.eulerAngles.y);
 
-            if (HasAhead(car, cell)) list.Add(CarAnimationDirection.Forward);
-            if (HasRight(car, cell)) list.Add(CarAnimationDirection.Right);
-            if (HasLeft(car, cell)) list.Add(CarAnimationDirection.Left);
-            if (list.Count == 0)
-            {
-                list.Add(CarAnimationDirection.Return);
-            }
+            car.transform.eulerAngles = new Vector3(0, yAngle, 0);
+            car.transform.position = cell.center;
 
-            Debug.Log(car.transform.eulerAngles);
+            if (HasAhead(yAngle, cell)) list.Add(CarAnimationDirection.Forward);
+            if (HasRight(yAngle, cell)) list.Add(CarAnimationDirection.Right);
+            if (HasLeft(yAngle, cell)) list.Add(CarAnimationDirection.Left);
+            if (list.Count == 0) { list.Add(CarAnimationDirection.Return); }
 
             return list[Random.Range(0, list.Count)];
+        }
+
+        private static int NearbyCorrespondent(float val)
+        {
+            if (Mathf.Abs(Mathf.Abs(val) - leftAngle) < 5)  return leftAngle;
+            if (Mathf.Abs(Mathf.Abs(val) - downAngle) < 5)  return downAngle;
+            if (Mathf.Abs(Mathf.Abs(val) - upAngle) < 5)    return upAngle;
+
+            return rightAngle;
         }
 
         private static bool IsStreet(int i, int j)
@@ -36,46 +50,40 @@ namespace Cariacity.game
             return false;
         }
 
-        private static bool HasAhead(GameObject car, GridCell cell)
+        private static bool HasAhead(int carAngle, GridCell cell)
         {
-            var carRotation = (int) car.transform.eulerAngles.y;
-
-            switch (carRotation)
+            switch (carAngle)
             {
-                case 345: return IsStreet(cell.i - 1, cell.j); // up
-                case 45:  return IsStreet(cell.i, cell.j + 1); // right
-                case 135: return IsStreet(cell.i + 1, cell.j); // down
-                case 225: return IsStreet(cell.i, cell.j - 1); // left
+                case upAngle:       return IsStreet(cell.i - 1, cell.j) && IsStreet(cell.i - 2, cell.j); // up
+                case rightAngle:    return IsStreet(cell.i, cell.j + 1) && IsStreet(cell.i, cell.j + 2); // right
+                case downAngle:     return IsStreet(cell.i + 1, cell.j) && IsStreet(cell.i + 2, cell.j); // down
+                case leftAngle:     return IsStreet(cell.i, cell.j - 1) && IsStreet(cell.i, cell.j - 2); // left
             }
 
             return false;
         }
 
-        private static bool HasRight(GameObject car, GridCell cell)
+        private static bool HasRight(int carAngle, GridCell cell)
         {
-            var carRotation = (int) car.transform.eulerAngles.y;
-
-            switch (carRotation)
+            switch (carAngle)
             {
-                case 345: return IsStreet(cell.i - 1, cell.j) && IsStreet(cell.i - 1, cell.j + 1);
-                case 45:  return IsStreet(cell.i, cell.j + 1) && IsStreet(cell.i + 1, cell.j + 1);
-                case 135: return IsStreet(cell.i + 1, cell.j) && IsStreet(cell.i + 1, cell.j - 1);
-                case 225: return IsStreet(cell.i, cell.j - 1) && IsStreet(cell.i - 1, cell.j - 1);
+                case upAngle:       return IsStreet(cell.i - 1, cell.j) && IsStreet(cell.i - 1, cell.j + 1);
+                case rightAngle:    return IsStreet(cell.i, cell.j + 1) && IsStreet(cell.i + 1, cell.j + 1);
+                case downAngle:     return IsStreet(cell.i + 1, cell.j) && IsStreet(cell.i + 1, cell.j - 1);
+                case leftAngle:     return IsStreet(cell.i, cell.j - 1) && IsStreet(cell.i - 1, cell.j - 1);
             }
 
             return false;
         }
 
-        private static bool HasLeft(GameObject car, GridCell cell)
+        private static bool HasLeft(int carAngle, GridCell cell)
         {
-            var carRotation = (int)car.transform.eulerAngles.y;
-
-            switch (carRotation)
+            switch (carAngle)
             {
-                case 345: return IsStreet(cell.i - 1, cell.j) && IsStreet(cell.i - 1, cell.j - 1);
-                case 45:  return IsStreet(cell.i, cell.j + 1) && IsStreet(cell.i - 1, cell.j + 1);
-                case 135: return IsStreet(cell.i + 1, cell.j) && IsStreet(cell.i + 1, cell.j + 1);
-                case 225: return IsStreet(cell.i, cell.j - 1) && IsStreet(cell.i + 1, cell.j - 1);
+                case upAngle:       return IsStreet(cell.i - 1, cell.j) && IsStreet(cell.i - 1, cell.j - 1);
+                case rightAngle:    return IsStreet(cell.i, cell.j + 1) && IsStreet(cell.i - 1, cell.j + 1);
+                case downAngle:     return IsStreet(cell.i + 1, cell.j) && IsStreet(cell.i + 1, cell.j + 1);
+                case leftAngle:     return IsStreet(cell.i, cell.j - 1) && IsStreet(cell.i + 1, cell.j - 1);
             }
 
             return false;
