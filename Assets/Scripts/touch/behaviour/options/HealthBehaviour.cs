@@ -24,7 +24,7 @@ namespace Cariacity.game
             switch (_type)
             {
                 case HealthBuilding.Clinic: _currentProject = GameController.InitObj(Clinic.Data.Project, pos); break;
-                case HealthBuilding.Hospital: _currentProject = GameController.InitObj(Hospital.Project, pos); break;
+                case HealthBuilding.Hospital: _currentProject = GameController.InitObj(Hospital.Data.Project, pos); break;
                 case HealthBuilding.FirstAidPost: _currentProject = GameController.InitObj(FirstAidPost.Data.Project, pos); break;
             }
         }

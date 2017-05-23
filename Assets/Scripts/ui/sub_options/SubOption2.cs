@@ -40,7 +40,7 @@ namespace Cariacity.game
             {
                 case BIG: GameplayController.SetInsertionModel(Tags.University); break;
                 case SMALL: GameplayController.SetInsertionModel(Tags.DayCarePost); break;
-                case MEDIUM: GameplayController.SetInsertionModel(Tags.School); break;
+                case MEDIUM: GameplayController.SetInsertionModel(Tags.HighSchool); break;
             }
 
             UiController.EnableEditionMode();

@@ -47,10 +47,10 @@ namespace Cariacity.game
             Street.CrossingModel = StreetCrossingModel;
 
             Clinic.Data.Model = ClinicModel;
-            Hospital.Model = HospitalModel;
+            Hospital.Data.Model = HospitalModel;
             FirstAidPost.Data.Model = FirsAidPostModel;
 
-            School.Data.Model = SchoolModel;
+            HighSchool.Data.Model = SchoolModel;
             University.Data.Model = UniversityModel;
             DayCarePost.Data.Model = DayCarePostModel;
 

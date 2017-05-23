@@ -26,8 +26,8 @@ namespace Cariacity.game
                 case Tags.Store: _behaviour = new StoreBehaviour(); break;
                 case Tags.Street: _behaviour = new StreetBehaviour(); break;
                 case Tags.Clinic: _behaviour = new HealthBehaviour(HealthBuilding.Clinic); break;
-                case Tags.School: _behaviour = new EducationBehaviour(EducationBuilding.School); break;
                 case Tags.Hospital: _behaviour = new HealthBehaviour(HealthBuilding.Hospital); break;
+                case Tags.HighSchool: _behaviour = new EducationBehaviour(EducationBuilding.School); break;
                 case Tags.University: _behaviour = new EducationBehaviour(EducationBuilding.University); break;
                 case Tags.DayCarePost: _behaviour = new EducationBehaviour(EducationBuilding.DayCarePost); break;
                 case Tags.FirstAidPost: _behaviour = new HealthBehaviour(HealthBuilding.FirstAidPost); break;

@@ -27,10 +27,10 @@ namespace Cariacity.game
             Street.Project = StreetProject;
 
             Clinic.Data.Project = ClinicProject;
-            Hospital.Project = HospitalProject;
+            Hospital.Data.Project = HospitalProject;
             FirstAidPost.Data.Project = FirstAidProject;
 
-            School.Data.Project = SchoolProject;
+            HighSchool.Data.Project = SchoolProject;
             University.Data.Project = UniversityProject;
             DayCarePost.Data.Project = DayCarePostProject;
 

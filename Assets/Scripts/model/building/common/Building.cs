@@ -78,5 +78,60 @@ namespace Cariacity.game
 
             return false;
         }
+
+        protected static void SetOnMap(Vector3 pos, BuildingData building)
+        {
+            var cell = Common.GetNearbyCell(pos);
+            var mat = Common.Matrix;
+            var line = cell.i;
+            var column = cell.j;
+
+            var x0 = cell.i - building.Bounds.top;
+            var x1 = cell.i + building.Bounds.bottom;
+            var y0 = cell.j - building.Bounds.left;
+            var y1 = cell.j + building.Bounds.right;
+
+            cell.obj = GameController.InitObj(building.Model, pos);
+
+            for (int i = x0; i <= x1; i++)
+                for (int j = y0; j <= y1; j++)
+                    mat[i, j].obj = cell.obj;
+
+            var end_line = Mathf.Clamp(line + building.InfluenceBound, 0, Constants.GridSize - 1);
+            var start_line = Mathf.Clamp(line - building.InfluenceBound, 0, Constants.GridSize - 1);
+            var end_column = Mathf.Clamp(column + building.InfluenceBound, 0, Constants.GridSize - 1);
+            var start_column = Mathf.Clamp(column - building.InfluenceBound, 0, Constants.GridSize - 1);
+
+            for (int i = start_line; i <= end_line; i++)
+                for (int j = start_column; j <= end_column; j++)
+                    mat[i, j].status[building.InfuenceType] += (mat[i, j].center - pos).magnitude;
+        }
+
+        protected static void RemoveFromMap(Vector3 pos, BuildingData building)
+        {
+            var cell = Common.GetNearbyCell(pos);
+            var mat = Common.Matrix;
+            var line = cell.i;
+            var column = cell.j;
+
+            var x0 = cell.i - building.Bounds.top;
+            var x1 = cell.i + building.Bounds.bottom;
+            var y0 = cell.j - building.Bounds.left;
+            var y1 = cell.j + building.Bounds.right;
+
+            for (int i = x0; i <= x1; i++)  // maybe unnecessary, the destroy made item null i supose
+                for (int j = y0; j <= y1; j++)
+                    if (mat[i, j].obj == cell.obj)
+                        mat[i, j].obj = null;
+
+            var end_line = Mathf.Clamp(line + building.InfluenceBound, 0, Constants.GridSize - 1);
+            var start_line = Mathf.Clamp(line - building.InfluenceBound, 0, Constants.GridSize - 1);
+            var end_column = Mathf.Clamp(column + building.InfluenceBound, 0, Constants.GridSize - 1);
+            var start_column = Mathf.Clamp(column - building.InfluenceBound, 0, Constants.GridSize - 1);
+
+            for (int i = start_line; i <= end_line; i++)
+                for (int j = start_column; j <= end_column; j++)
+                    mat[i, j].status[building.InfuenceType] -= (mat[i, j].center - pos).magnitude;
+        }
     }
 }

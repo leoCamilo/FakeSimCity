@@ -10,7 +10,7 @@ namespace Cariacity.game
         {
             var cell = Common.GetNearbyCell(pos);
             Object.Destroy(cell.obj);
-            cell.obj = null;
+            Common.Matrix[cell.i, cell.j].obj = null;
         }
     }
 }

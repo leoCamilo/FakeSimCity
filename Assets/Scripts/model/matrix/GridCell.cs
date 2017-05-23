@@ -2,7 +2,7 @@
 
 namespace Cariacity.game
 {
-    public enum Status { Health, Security }
+    public enum Status { Health, Security, Education }
 
     public class GridCell
     {
@@ -14,14 +14,15 @@ namespace Cariacity.game
 
         public override string ToString()
         {
-            string _out = "";
+            var outStr = "";
 
-            _out += "i: " + i + " j: " + j + '\n';
-            _out += "tag: " + (obj != null ? obj.tag : "null") + '\n';
-            _out += "health: " + status[(int)Status.Health] + '\n';
-            _out += "security: " + status[(int)Status.Security];
+            // _out += "i: " + i + " j: " + j + '\n';
+            // _out += "tag: " + (obj != null ? obj.tag : "null") + '\n';
+            outStr += "health: " + status[(int)Status.Health] + '\n';
+            outStr += "security: " + status[(int)Status.Security] + '\n';
+            outStr += "education: " + status[(int)Status.Education];
 
-            return _out;
+            return outStr;
         }
     }
 }

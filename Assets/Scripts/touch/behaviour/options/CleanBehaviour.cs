@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cariacity.game
@@ -7,6 +6,11 @@ namespace Cariacity.game
     public class CleanBehaviour : BuildingBehaviour
     {
         private Stack<GameObject> _cleaned;
+
+        public override void OnEnded(GridCell cell) { }
+        public override void OnMoved(GridCell cell) { }
+        public override void OnCanceled(GridCell cell) { }
+        public override void OnStationary(GridCell cell) { }
 
         public CleanBehaviour()
         {
@@ -24,27 +28,26 @@ namespace Cariacity.game
             }
         }
 
-        public override void OnEnded(GridCell cell) {}
-        public override void OnMoved(GridCell cell) {}
-        public override void OnCanceled(GridCell cell) {}
-        public override void OnStationary(GridCell cell) {}
-
         public override void Apply()
         {
             foreach (var item in _cleaned)
             {
                 var pos = item.transform.position;
-                // var cell = Common.GetNearbyCell(item.transform.position);
 
                 switch (item.tag)
                 {
                     case Tags.Tree: Tree.RemoveFromMap(pos); break;
                     case Tags.Home: Home.RemoveFromMap(pos); break;
                     case Tags.Street: Street.RemoveFromMap(pos); break;
-                    case Tags.School:
-                    case Tags.SecurityCabin: SecurityCabin.RemoveFromMap(pos); break;
+                    case Tags.Clinic: Clinic.RemoveFromMap(pos); break;
                     case Tags.Hospital: Hospital.RemoveFromMap(pos); break;
+                    case Tags.HighSchool: HighSchool.RemoveFromMap(pos); break;
+                    case Tags.FirstAidPost: FirstAidPost.RemoveFromMap(pos); break;
+                    case Tags.PoliceStation:PoliceStation.RemoveFromMap(pos); break;
+                    case Tags.SecurityCabin: SecurityCabin.RemoveFromMap(pos); break;
                 }
+
+                Object.Destroy(item);
             }
         }
 

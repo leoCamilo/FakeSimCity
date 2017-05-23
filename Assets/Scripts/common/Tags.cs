@@ -12,7 +12,7 @@
         public const string PoliceStation = "police_sation";
         public const string PoliceHeadquartes = "police_headquarters";
 
-        public const string School = "school";
+        public const string HighSchool = "high_school";
         public const string University = "university";
         public const string DayCarePost = "day_care_post";
 

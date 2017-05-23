@@ -6,28 +6,29 @@ namespace Cariacity.game
     {
         public static BuildingData Data = new BuildingData
         {
+            Bounds = new Rectangle(0, 1, 1, 0),
+            InfuenceType = (int)Status.Health,
             InfluenceBound = 5,
-            Value = 500
+            Value = 250
         };
 
         public static bool IsBuildable(GridCell cell)
         {
-            return IsBuildable(cell, new Rectangle(0, 1, 1, 0));
+            return IsBuildable(cell, Data.Bounds);
         }
 
         public static void SetOnMap(Vector3 pos)
         {
-            var cell = Common.GetNearbyCell(pos);
-
-            if (IsBuildable(cell))
+            if (IsBuildable(Common.GetNearbyCell(pos)))
             {
-                cell.obj = GameController.InitObj(Data.Model, pos);
+                SetOnMap(pos, Data);
+                DebitFromMoney(Data.Value);
             }
         }
 
         public static void RemoveFromMap(Vector3 pos)
         {
-
+            RemoveFromMap(pos, Data);
         }
     }
 }

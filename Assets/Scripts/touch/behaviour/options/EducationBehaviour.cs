@@ -23,7 +23,7 @@ namespace Cariacity.game
 
             switch (_type)
             {
-                case EducationBuilding.School: _currentProject = GameController.InitObj(School.Data.Project, pos); break;
+                case EducationBuilding.School: _currentProject = GameController.InitObj(HighSchool.Data.Project, pos); break;
                 case EducationBuilding.University: _currentProject = GameController.InitObj(University.Data.Project, pos); break;
                 case EducationBuilding.DayCarePost: _currentProject = GameController.InitObj(DayCarePost.Data.Project, pos); break;
             }
@@ -35,7 +35,7 @@ namespace Cariacity.game
 
             switch (_type)
             {
-                case EducationBuilding.School: Building.SetRenderer(_currentProject, School.IsBuildable(cell)); break;
+                case EducationBuilding.School: Building.SetRenderer(_currentProject, HighSchool.IsBuildable(cell)); break;
                 case EducationBuilding.University: Building.SetRenderer(_currentProject, University.IsBuildable(cell)); break;
                 case EducationBuilding.DayCarePost: Building.SetRenderer(_currentProject, DayCarePost.IsBuildable(cell)); break;
             }
@@ -47,7 +47,7 @@ namespace Cariacity.game
 
             switch (_type)
             {
-                case EducationBuilding.School: School.SetOnMap(pos); break;
+                case EducationBuilding.School: HighSchool.SetOnMap(pos); break;
                 case EducationBuilding.University: University.SetOnMap(pos); break;
                 case EducationBuilding.DayCarePost: DayCarePost.SetOnMap(pos); break;
             }
