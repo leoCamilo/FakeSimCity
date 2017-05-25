@@ -7,7 +7,7 @@ namespace Cariacity.game
 
     public class CarAnimator : MonoBehaviour
     {
-        private const float carAnimationDuration = 0.5f;
+        private const float carAnimationDuration = 0.75f;
         private Animator _animator;
         private int[] _hashList;
 

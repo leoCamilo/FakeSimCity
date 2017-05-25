@@ -18,9 +18,9 @@ namespace Cariacity.game
 
             // _out += "i: " + i + " j: " + j + '\n';
             // _out += "tag: " + (obj != null ? obj.tag : "null") + '\n';
-            outStr += "health: " + status[(int)Status.Health] + '\n';
-            outStr += "security: " + status[(int)Status.Security] + '\n';
-            outStr += "education: " + status[(int)Status.Education];
+            outStr += "Saúde: " + status[(int)Status.Health] + '\n';
+            outStr += "Segurança: " + status[(int)Status.Security] + '\n';
+            outStr += "Educação: " + status[(int)Status.Education];
 
             return outStr;
         }
