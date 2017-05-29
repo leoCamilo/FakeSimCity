@@ -5,8 +5,6 @@ namespace Cariacity.game
 {
     public class GameController : MonoBehaviour
     {
-        public GameObject Test;
-
         public Material RightProject;
         public Material WrongProject;
 

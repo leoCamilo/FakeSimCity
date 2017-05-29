@@ -16,24 +16,6 @@ namespace Cariacity.game
         public static GameObject Money;
         public static GameObject Happyness;
 
-        /*
-        public static GridCell GetNearbyCell(Vector3 center)
-        {
-            Vector3 tmp;
-
-            for (int i = 0; i < Constants.GridSize; i++)
-                for (int j = 0; j < Constants.GridSize; j++)
-                {
-                    tmp = Matrix[i, j].center - center;
-
-                    if (tmp.magnitude < Constants.HalfHypotenuse) // maybe check down line
-                        return Matrix[i, j];
-                }
-
-            return null;
-        }
-        */
-
         public static GridCell GetNearbyCell(Vector3 center)
         {
             Vector3 tmp;

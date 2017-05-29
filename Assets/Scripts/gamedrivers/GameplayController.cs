@@ -7,6 +7,8 @@ namespace Cariacity.game
         private static TouchController _touchControl;
         private static TouchBehavior _currentMode;
 
+        public GameObject Cube;
+
         private void Start()
         {
             _touchControl = new TouchController();
@@ -60,8 +62,18 @@ namespace Cariacity.game
                 {
                     var touchPoint = Input.mousePosition;
                     var cameraPoint = Camera.main.ScreenToWorldPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
-                    var _cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
+                    var cameraPoint2 = Camera.main.ScreenToViewportPoint(new Vector3(touchPoint.x, touchPoint.y, 0));
+                    var cameraPoint3 = Camera.main.ScreenPointToRay(new Vector3(touchPoint.x, touchPoint.y, 0));
 
+                    //Instantiate(Cube, cameraPoint, Quaternion.Euler(0, 0, 0));
+                    //Instantiate(Cube, cameraPoint2, Quaternion.Euler(0, 0, 0));
+
+                    Debug.DrawRay(cameraPoint3.origin, cameraPoint3.direction, Color.red);
+                    // Instantiate(Cube, cameraPoint3., Quaternion.Euler(0, 0, 0));
+
+                    //var _cell = Common.GetNearbyCell(new Vector3(cameraPoint.x, 0, cameraPoint.z + cameraPoint.y));
+
+                    /*
                     if (_cell != null)
                     {
                         lock (UiController.TouchOnUILock)
@@ -76,6 +88,7 @@ namespace Cariacity.game
                             UiController.TouchOnUI = false;
                         }
                     }
+                    */
 
                     //Instantiate(Model2, cameraPoint, Quaternion.Euler(-45, 0, 0));    // touch direction, !important
 
