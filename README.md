@@ -4,8 +4,8 @@ This project is a city constructor game like SimCity for smartphones builted in 
 This game contains:
 * some game models:
 
-![](/info/models.png)
-![](/info/models2.png)
+![](/info/models.PNG)
+![](/info/models2.PNG)
 
 * car simple IA for auto driving:
 
