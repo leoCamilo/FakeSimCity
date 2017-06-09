@@ -32,31 +32,26 @@ namespace Cariacity.game
 
         private void Awake()
         {
-            Home.Model[0] = HomeModel1;
-            Home.Model[1] = HomeModel2;
-            Home.Model[2] = HomeModel3;
-            Home.Model[3] = HomeModel4;
-            Home.Model[4] = HomeModel5;
-
-            Store.Model = StoreModel1;
-
-            Street.TModel = StreetTModel;
-            Street.EndModel= StreetEndModel;
-            Street.LineModel = StreetLineModel;
-            Street.CornerModel = StreetCornerModel;
-            Street.CrossingModel = StreetCrossingModel;
-
-            Clinic.Data.Model = ClinicModel;
-            Hospital.Data.Model = HospitalModel;
-            FirstAidPost.Data.Model = FirsAidPostModel;
-
-            HighSchool.Data.Model = SchoolModel;
-            University.Data.Model = UniversityModel;
-            DayCarePost.Data.Model = DayCarePostModel;
-
-            SecurityCabin.Data.Model = SecurityCabinModel;
-            PoliceStation.Data.Model = PoliceStationModel;
-            PoliceHeadquarters.Data.Model = PoliceHeadquartesModel;
+            GameModel.Add(Home.Model[0] = HomeModel1);
+            GameModel.Add(Home.Model[1] = HomeModel2);
+            GameModel.Add(Home.Model[2] = HomeModel3);
+            GameModel.Add(Home.Model[3] = HomeModel4);
+            GameModel.Add(Home.Model[4] = HomeModel5);
+            GameModel.Add(Store.Model = StoreModel1);
+            GameModel.Add(Street.TModel = StreetTModel);
+            GameModel.Add(Street.EndModel= StreetEndModel);
+            GameModel.Add(Street.LineModel = StreetLineModel);
+            GameModel.Add(Street.CornerModel = StreetCornerModel);
+            GameModel.Add(Street.CrossingModel = StreetCrossingModel);
+            GameModel.Add(Clinic.Data.Model = ClinicModel);
+            GameModel.Add(Hospital.Data.Model = HospitalModel);
+            GameModel.Add(FirstAidPost.Data.Model = FirsAidPostModel);
+            GameModel.Add(HighSchool.Data.Model = SchoolModel);
+            GameModel.Add(University.Data.Model = UniversityModel);
+            GameModel.Add(DayCarePost.Data.Model = DayCarePostModel);
+            GameModel.Add(SecurityCabin.Data.Model = SecurityCabinModel);
+            GameModel.Add(PoliceStation.Data.Model = PoliceStationModel);
+            GameModel.Add(PoliceHeadquarters.Data.Model = PoliceHeadquartesModel);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Cariacity.game
     {
         public int i;
         public int j;
+        public int type;
         public float[] status = { 0, 0, 0, 0 };
         public Vector3 center;
         public GameObject obj;

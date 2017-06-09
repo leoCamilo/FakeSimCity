@@ -35,10 +35,8 @@ namespace Cariacity.game
 
         void Start()
         {
-            _setCommonData();
-            _mainService = _service(Constants.BackgroundTimer);
-
-            StartCoroutine(_mainService);
+            SetCommonData();
+            StartCoroutine(_mainService = _service(Constants.BackgroundTimer));
 
             var matrix = new GridCell[Constants.GridSize, Constants.GridSize];
             var _0idxPos = new Vector2(0, (Constants.GridSize / 2) * Constants.Hypotenuse - Constants.HalfHypotenuse);
@@ -57,33 +55,48 @@ namespace Cariacity.game
                     };
 
                     _currentPos += new Vector2(Constants.HalfHypotenuse, -Constants.HalfHypotenuse);
-
-                    if (Random.Range(0, 100) < Constants.TreeProbability)
-                        matrix[i, j].obj = InitObj(Tree.Model, matrix[i, j].center, Quaternion.Euler(-90, Random.Range(0, 360), 0));
                 }
 
                 _0idxPos += new Vector2(-Constants.HalfHypotenuse, -Constants.HalfHypotenuse);
             }
 
-            Destroy(matrix[22, 20].obj); matrix[22, 20].obj = InitObj(Street.EndModel, matrix[22, 20].center, Quaternion.Euler(0, 135, 0));
-            Destroy(matrix[22, 21].obj); matrix[22, 21].obj = InitObj(Street.LineModel, matrix[22, 21].center, Quaternion.Euler(0, 135, 0));
-            Destroy(matrix[22, 22].obj); matrix[22, 22].obj = InitObj(Street.LineModel, matrix[22, 22].center, Quaternion.Euler(0, 135, 0));
-            Destroy(matrix[22, 23].obj); matrix[22, 23].obj = InitObj(Street.LineModel, matrix[22, 23].center, Quaternion.Euler(0, 135, 0));
-            Destroy(matrix[22, 24].obj); matrix[22, 24].obj = InitObj(Street.CornerModel, matrix[22, 24].center);
-            Destroy(matrix[23, 24].obj); matrix[23, 24].obj = InitObj(Street.LineModel, matrix[23, 24].center);
-            Destroy(matrix[24, 24].obj); matrix[24, 24].obj = InitObj(Street.TModel, matrix[24, 24].center, Quaternion.Euler(0, -135, 0));
-            Destroy(matrix[25, 24].obj); matrix[25, 24].obj = InitObj(Street.LineModel, matrix[25, 24].center);
-            Destroy(matrix[26, 24].obj); matrix[26, 24].obj = InitObj(Street.LineModel, matrix[26, 24].center);
-            Destroy(matrix[27, 24].obj); matrix[27, 24].obj = InitObj(Street.LineModel, matrix[27, 24].center);
-            Destroy(matrix[28, 24].obj); matrix[28, 24].obj = InitObj(Street.LineModel, matrix[28, 24].center);
-            Destroy(matrix[29, 24].obj); matrix[29, 24].obj = InitObj(Street.EndModel, matrix[29, 24].center);
-            Destroy(matrix[24, 25].obj); matrix[24, 25].obj = InitObj(Street.LineModel, matrix[24, 25].center, Quaternion.Euler(0, 135, 0));
-            Destroy(matrix[24, 26].obj); matrix[24, 26].obj = InitObj(Street.EndModel, matrix[24, 26].center, Quaternion.Euler(0, -45, 0));
-
-            InitObj(Car.Models[0], matrix[24, 24].center);
+            InitObj(Car.Models[0], matrix[24, 24].center);  // highway position
 
             Common.Matrix = matrix;
             Common.UpdateMoney();
+
+            if (!JsonSerializer.HasSave())
+                ConfigureNewGame();
+            else
+                SerializaCity.OpenSave((SerializableCity)JsonSerializer.Get<SerializableCity>());
+        }
+
+        private static void ConfigureNewGame()
+        {
+            var matrix = Common.Matrix;
+
+            for (int i = 0; i < Constants.GridSize; i++)
+                for (int j = 0; j < Constants.GridSize; j++)
+                    if (Random.Range(0, 100) < Constants.TreeProbability)
+                    {
+                        matrix[i, j].obj = InitObj(Tree.Model, matrix[i, j].center, Quaternion.Euler(-90, Random.Range(0, 360), 0));
+                        matrix[i, j].type = GameModel.Get(Tree.Model);
+                    }
+
+            Destroy(matrix[22, 20].obj);    matrix[22, 20].type = GameModel.Get(Street.EndModel);      matrix[22, 20].obj = InitObj(Street.EndModel, matrix[22, 20].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 21].obj);    matrix[22, 21].type = GameModel.Get(Street.LineModel);     matrix[22, 21].obj = InitObj(Street.LineModel, matrix[22, 21].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 22].obj);    matrix[22, 22].type = GameModel.Get(Street.LineModel);     matrix[22, 22].obj = InitObj(Street.LineModel, matrix[22, 22].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 23].obj);    matrix[22, 23].type = GameModel.Get(Street.LineModel);     matrix[22, 23].obj = InitObj(Street.LineModel, matrix[22, 23].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[22, 24].obj);    matrix[22, 24].type = GameModel.Get(Street.CornerModel);   matrix[22, 24].obj = InitObj(Street.CornerModel, matrix[22, 24].center);
+            Destroy(matrix[23, 24].obj);    matrix[23, 24].type = GameModel.Get(Street.LineModel);     matrix[23, 24].obj = InitObj(Street.LineModel, matrix[23, 24].center);
+            Destroy(matrix[24, 24].obj);    matrix[24, 24].type = GameModel.Get(Street.TModel);        matrix[24, 24].obj = InitObj(Street.TModel, matrix[24, 24].center, Quaternion.Euler(0, -135, 0));
+            Destroy(matrix[25, 24].obj);    matrix[25, 24].type = GameModel.Get(Street.LineModel);     matrix[25, 24].obj = InitObj(Street.LineModel, matrix[25, 24].center);
+            Destroy(matrix[26, 24].obj);    matrix[26, 24].type = GameModel.Get(Street.LineModel);     matrix[26, 24].obj = InitObj(Street.LineModel, matrix[26, 24].center);
+            Destroy(matrix[27, 24].obj);    matrix[27, 24].type = GameModel.Get(Street.LineModel);     matrix[27, 24].obj = InitObj(Street.LineModel, matrix[27, 24].center);
+            Destroy(matrix[28, 24].obj);    matrix[28, 24].type = GameModel.Get(Street.LineModel);     matrix[28, 24].obj = InitObj(Street.LineModel, matrix[28, 24].center);
+            Destroy(matrix[29, 24].obj);    matrix[29, 24].type = GameModel.Get(Street.EndModel);      matrix[29, 24].obj = InitObj(Street.EndModel, matrix[29, 24].center);
+            Destroy(matrix[24, 25].obj);    matrix[24, 25].type = GameModel.Get(Street.LineModel);     matrix[24, 25].obj = InitObj(Street.LineModel, matrix[24, 25].center, Quaternion.Euler(0, 135, 0));
+            Destroy(matrix[24, 26].obj);    matrix[24, 26].type = GameModel.Get(Street.EndModel);      matrix[24, 26].obj = InitObj(Street.EndModel, matrix[24, 26].center, Quaternion.Euler(0, -45, 0));
         }
 
         public static GameObject InitObj(GameObject model, Vector3 pos)
@@ -96,7 +109,7 @@ namespace Cariacity.game
             return Instantiate(model, pos, rotation);
         }
 
-        private void _setCommonData()
+        private void SetCommonData()
         {
             Common.RightProject = RightProject;
             Common.WrongProject = WrongProject;

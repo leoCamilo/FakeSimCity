@@ -92,6 +92,7 @@ namespace Cariacity.game
             var y1 = cell.j + building.Bounds.right;
 
             cell.obj = GameController.InitObj(building.Model, pos);
+            cell.type = GameModel.Get(building.Model);
 
             for (int i = x0; i <= x1; i++)
                 for (int j = y0; j <= y1; j++)

@@ -6,6 +6,7 @@ namespace Cariacity.game
     {
         public void ExitGame()
         {
+            JsonSerializer.Save(SerializaCity.GetSave());
             Application.Quit();
         }
 

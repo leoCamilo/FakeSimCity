@@ -10,8 +10,9 @@ namespace Cariacity.game
 
         private void Awake()
         {
-            Car.Models[0] = CarModel;
-            Tree.Model = TreeModel;
+            GameModel.Add(Car.Models[0] = CarModel);
+            GameModel.Add(Tree.Model = TreeModel);
+
             CommonModels.HighLightObj = Highlight;
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cariacity.game
@@ -10,6 +9,9 @@ namespace Cariacity.game
         private GridCell _firstCell;
         private IList<GameObject> _project;
         private Stack<IList<GameObject>> _projects;
+
+        public override void OnCanceled (GridCell cell) { }
+        public override void OnStationary (GridCell cell) { }
 
         public StreetBehaviour()
         {
@@ -79,9 +81,6 @@ namespace Cariacity.game
             else
                 _projects.Push(_project);
         }
-
-        public override void OnCanceled(GridCell cell) { throw new NotImplementedException(); }
-        public override void OnStationary(GridCell cell) { throw new NotImplementedException(); }
 
         public override void Apply()
         {

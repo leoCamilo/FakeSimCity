@@ -53,14 +53,17 @@ namespace Cariacity.game
             var cell = Common.GetNearbyCell(pos);
             var rotation = _isBuildable(cell);
 
+            var idx = Random.Range(0, 5);
+
             switch (rotation)
             {
-                case 1: cell.obj = GameController.InitObj(Model[Random.Range(0, 5)], pos, Quaternion.Euler(0, 135, 0)); break;
-                case 2: cell.obj = GameController.InitObj(Model[Random.Range(0, 5)], pos, Quaternion.Euler(0, 225, 0)); break;
-                case 3: cell.obj = GameController.InitObj(Model[Random.Range(0, 5)], pos, Quaternion.Euler(0, 315, 0)); break;
-                case 4: cell.obj = GameController.InitObj(Model[Random.Range(0, 5)], pos, Quaternion.Euler(0,  45, 0)); break;
+                case 1: cell.obj = GameController.InitObj(Model[idx], pos, Quaternion.Euler(0, 135, 0)); break;
+                case 2: cell.obj = GameController.InitObj(Model[idx], pos, Quaternion.Euler(0, 225, 0)); break;
+                case 3: cell.obj = GameController.InitObj(Model[idx], pos, Quaternion.Euler(0, 315, 0)); break;
+                case 4: cell.obj = GameController.InitObj(Model[idx], pos, Quaternion.Euler(0,  45, 0)); break;
             }
 
+            cell.type = GameModel.Get(Model[idx]);
             DebitFromMoney(value);
             Common.CurrentCity.HomeList.Add(cell);
         }

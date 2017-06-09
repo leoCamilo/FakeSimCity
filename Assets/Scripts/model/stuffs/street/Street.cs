@@ -60,6 +60,7 @@ namespace Cariacity.game
 
                 var tmp = StreetOrientation.GetOrientation(conections, directions);
                 cell.obj = GameController.InitObj(tmp.Model, cell.center, tmp.Rotation);
+                cell.type = GameModel.Get(tmp.Model);
             }
         }
 
