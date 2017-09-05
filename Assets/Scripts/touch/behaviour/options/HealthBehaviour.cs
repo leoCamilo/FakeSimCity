@@ -17,21 +17,32 @@ namespace Cariacity.game
 
         public HealthBehaviour(HealthBuilding healthBuilding)
         {
+            BuildingData data;
             _type = healthBuilding;
-
-            var pos = new Vector3(0, -10, 0);
 
             switch (_type)
             {
-                case HealthBuilding.Clinic: _currentProject = GameController.InitObj(Clinic.Data.Project, pos); break;
-                case HealthBuilding.Hospital: _currentProject = GameController.InitObj(Hospital.Data.Project, pos); break;
-                case HealthBuilding.FirstAidPost: _currentProject = GameController.InitObj(FirstAidPost.Data.Project, pos); break;
+                case HealthBuilding.Clinic: data = Clinic.Data;  break;
+                case HealthBuilding.Hospital: data = Hospital.Data; break;
+                case HealthBuilding.FirstAidPost: data = FirstAidPost.Data; break;
+                default: return;
             }
+
+            var pos = new Vector3(0, -10, 0);
+            var influenceArea = CommonModels.InfluenceObj;
+            var bound = data.InfluenceBound * 2;
+
+            _currentProject = GameController.InitObj(data.Project, pos);
+
+            influenceArea.SetActive(true);
+            influenceArea.transform.localScale = new Vector3(bound, 0.01f, bound);
+            influenceArea.transform.position = pos;
         }
 
         public override void OnMoved(GridCell cell)
         {
             _currentProject.transform.position = cell.center;
+            CommonModels.InfluenceObj.transform.position = cell.center;
 
             switch (_type)
             {
@@ -52,12 +63,13 @@ namespace Cariacity.game
                 case HealthBuilding.FirstAidPost: FirstAidPost.SetOnMap(pos); break;
             }
 
-            Object.Destroy(_currentProject);
+            Clean();
         }
 
         public override void Clean()
         {
             Object.Destroy(_currentProject);
+            CommonModels.InfluenceObj.SetActive(false);
         }
     }
 }

@@ -5,8 +5,9 @@ namespace Cariacity.game
     public class StuffInit : MonoBehaviour
     {
         public GameObject TreeModel;
-        public GameObject Highlight;
         public GameObject CarModel;
+        public GameObject Highlight;
+        public GameObject InfluenceArea;
 
         private void Awake()
         {
@@ -14,6 +15,7 @@ namespace Cariacity.game
             GameModel.Add(Tree.Model = TreeModel);
 
             CommonModels.HighLightObj = Highlight;
+            CommonModels.InfluenceObj = InfluenceArea;
         }
     }
 }

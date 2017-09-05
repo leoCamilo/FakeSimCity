@@ -8,7 +8,7 @@ namespace Cariacity.game
         {
             Bounds = new Rectangle(0, 0, 0, 0),
             InfuenceType = (int)Status.Health,
-            InfluenceBound = 5,
+            InfluenceBound = 3,
             Value = 100
         };
 

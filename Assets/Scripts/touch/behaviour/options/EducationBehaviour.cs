@@ -17,21 +17,32 @@ namespace Cariacity.game
 
         public EducationBehaviour(EducationBuilding educationBuilding)
         {
+            BuildingData data;
             _type = educationBuilding;
-
-            var pos = new Vector3(0, -10, 0);
 
             switch (_type)
             {
-                case EducationBuilding.School: _currentProject = GameController.InitObj(HighSchool.Data.Project, pos); break;
-                case EducationBuilding.University: _currentProject = GameController.InitObj(University.Data.Project, pos); break;
-                case EducationBuilding.DayCarePost: _currentProject = GameController.InitObj(DayCarePost.Data.Project, pos); break;
+                case EducationBuilding.School: data = HighSchool.Data; break;
+                case EducationBuilding.University: data = University.Data; break;
+                case EducationBuilding.DayCarePost: data = DayCarePost.Data; break;
+                default: return;
             }
+
+            var pos = new Vector3(0, -10, 0);
+            var influenceArea = CommonModels.InfluenceObj;
+            var bound = data.InfluenceBound * 2;
+
+            _currentProject = GameController.InitObj(data.Project, pos);
+
+            influenceArea.SetActive(true);
+            influenceArea.transform.localScale = new Vector3(bound, 0.01f, bound);
+            influenceArea.transform.position = pos;
         }        
 
         public override void OnMoved(GridCell cell)
         {
             _currentProject.transform.position = cell.center;
+            CommonModels.InfluenceObj.transform.position = cell.center;
 
             switch (_type)
             {
@@ -52,12 +63,13 @@ namespace Cariacity.game
                 case EducationBuilding.DayCarePost: DayCarePost.SetOnMap(pos); break;
             }
 
-            Object.Destroy(_currentProject);
+            Clean();
         }
 
         public override void Clean()
         {
             Object.Destroy(_currentProject);
+            CommonModels.InfluenceObj.SetActive(false);
         }
     }
 }

@@ -21,19 +21,19 @@ namespace Cariacity.game
         {
             switch (type)
             {
-                case Tags.Home: _behaviour = new HomeBehaviour(); break;
-                case Tags.Clean: _behaviour = new CleanBehaviour(); break;
-                case Tags.Store: _behaviour = new StoreBehaviour(); break;
-                case Tags.Street: _behaviour = new StreetBehaviour(); break;
-                case Tags.Clinic: _behaviour = new HealthBehaviour(HealthBuilding.Clinic); break;
-                case Tags.Hospital: _behaviour = new HealthBehaviour(HealthBuilding.Hospital); break;
-                case Tags.HighSchool: _behaviour = new EducationBehaviour(EducationBuilding.School); break;
-                case Tags.University: _behaviour = new EducationBehaviour(EducationBuilding.University); break;
-                case Tags.DayCarePost: _behaviour = new EducationBehaviour(EducationBuilding.DayCarePost); break;
-                case Tags.FirstAidPost: _behaviour = new HealthBehaviour(HealthBuilding.FirstAidPost); break;
-                case Tags.SecurityCabin: _behaviour = new SecurityBehaviour(SecurityBuilding.SecurityCabin); break;
-                case Tags.PoliceStation: _behaviour = new SecurityBehaviour(SecurityBuilding.PoliceStation); break;
-                case Tags.PoliceHeadquartes: _behaviour = new SecurityBehaviour(SecurityBuilding.PoliceHeadquarters); break;
+                case Tags.Home              : _behaviour = new HomeBehaviour(); break;
+                case Tags.Clean             : _behaviour = new CleanBehaviour(); break;
+                case Tags.Store             : _behaviour = new StoreBehaviour(); break;
+                case Tags.Street            : _behaviour = new StreetBehaviour(); break;
+                case Tags.Clinic            : _behaviour = new HealthBehaviour(HealthBuilding.Clinic); break;
+                case Tags.Hospital          : _behaviour = new HealthBehaviour(HealthBuilding.Hospital); break;
+                case Tags.HighSchool        : _behaviour = new EducationBehaviour(EducationBuilding.School); break;
+                case Tags.University        : _behaviour = new EducationBehaviour(EducationBuilding.University); break;
+                case Tags.DayCarePost       : _behaviour = new EducationBehaviour(EducationBuilding.DayCarePost); break;
+                case Tags.FirstAidPost      : _behaviour = new HealthBehaviour(HealthBuilding.FirstAidPost); break;
+                case Tags.SecurityCabin     : _behaviour = new SecurityBehaviour(SecurityBuilding.SecurityCabin); break;
+                case Tags.PoliceStation     : _behaviour = new SecurityBehaviour(SecurityBuilding.PoliceStation); break;
+                case Tags.PoliceHeadquartes : _behaviour = new SecurityBehaviour(SecurityBuilding.PoliceHeadquarters); break;
             }
         }
 
