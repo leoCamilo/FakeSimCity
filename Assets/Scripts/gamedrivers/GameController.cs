@@ -11,33 +11,50 @@ namespace Cariacity.game
         private IEnumerator _mainService;
 
         // -------------------------- fps counter
-        int m_frameCounter = 0;
-        float m_timeCounter = 0.0f;
-        float m_lastFramerate = 0.0f;
-        public float m_refreshTime = 0.5f;
 
-        void Update()
+    /*
+        private int _frameCounter = 0;
+        private float _timeCounter = 0.0f;
+        private float _lastFramerate = 0.0f;
+        private float _refreshTime = 0.5f;
+
+        private void CalcFPS()
         {
-            if (m_timeCounter < m_refreshTime)
+            if (_timeCounter < _refreshTime)
             {
-                m_timeCounter += Time.deltaTime;
-                m_frameCounter++;
+                _timeCounter += Time.deltaTime;
+                _frameCounter++;
             }
             else
             {
-                //This code will break if you set your m_refreshTime to 0, which makes no sense.
-                m_lastFramerate = (float)m_frameCounter / m_timeCounter;
-                m_frameCounter = 0;
-                m_timeCounter = 0.0f;
-                // Common.Log("FPS: " + m_lastFramerate);
+                _lastFramerate = _frameCounter / _timeCounter;
+                _timeCounter = _frameCounter = 0;
+
+                Common.Log("FPS: " + _lastFramerate);
             }
         }
+
+        void Update()
+        {
+            CalcFPS();
+        }
+
+    */
 
         void Start()
         {
             SetCommonData();
             StartCoroutine(_mainService = _service(Constants.BackgroundTimer));
 
+            InitGameMatrix();
+            InitGameCarSystem();        // coroutines to control cars system
+            InitGameEconomySystem();    // coroutines to control economy and houses level
+
+            if (!JsonSerializer.HasSave()) ConfigureNewGame(); else SerializaCity.OpenSave((SerializableCity)JsonSerializer.Get<SerializableCity>());
+        }
+
+        private static void InitGameMatrix()
+        {
             var matrix = new GridCell[Constants.GridSize, Constants.GridSize];
             var _0idxPos = new Vector2(0, (Constants.GridSize / 2) * Constants.Hypotenuse - Constants.HalfHypotenuse);
 
@@ -60,15 +77,17 @@ namespace Cariacity.game
                 _0idxPos += new Vector2(-Constants.HalfHypotenuse, -Constants.HalfHypotenuse);
             }
 
-            InitObj(Car.Models[0], matrix[24, 24].center);  // highway position
-
             Common.Matrix = matrix;
-            Common.UpdateMoney();
+        }
 
-            if (!JsonSerializer.HasSave())
-                ConfigureNewGame();
-            else
-                SerializaCity.OpenSave((SerializableCity)JsonSerializer.Get<SerializableCity>());
+        private static void InitGameCarSystem()
+        {
+            InitObj(Car.Models[0], Common.Matrix[24, 24].center);  // highway position
+        }
+
+        private static void InitGameEconomySystem()
+        {
+            Common.UpdateMoney();
         }
 
         private static void ConfigureNewGame()
